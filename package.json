@@ -4,8 +4,10 @@
   "description": "The Legendary system; a hobby project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --open",
-    "build": "webpack --config ./webpack.config.js --mode development"
+    "start": "webpack-dev-server --open",
+    "build": "webpack --mode development",
+    "test": "jest",
+    "format": "prettier --write 'src/**/*.{js,jsx,json,css,scss,html}'"
   },
   "repository": {
     "type": "git",
@@ -14,6 +16,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@emotion/core": "^10.0.10",
+    "@emotion/styled": "^10.0.10",
+    "babel-plugin-emotion": "^10.0.9",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -35,6 +40,7 @@
     "eslint-plugin-react": "^7.12.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.7.1",
     "prettier": "^1.16.4",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",

@@ -1,29 +1,26 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: './src/index.jsx',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: {
+        use: [{
           loader: 'babel-loader',
-        },
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: ['babel-loader', 'eslint-loader'],
+        }],
       },
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-        ],
+        use: [{
+          loader: 'html-loader',
+        }],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -31,7 +28,7 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-  devServer: {
+  /* devServer: {
     // Enable gzip compression of generated files.
     compress: true,
     // Silence WebpackDevServer's own logs since they're generally not useful.
@@ -57,5 +54,5 @@ module.exports = {
     publicPath: '/',
     // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
-  },
+  }, */
 };
