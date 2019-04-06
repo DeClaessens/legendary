@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --open",
     "build": "webpack --mode development",
     "test": "jest",
-    "format": "prettier --write 'src/**/*.{js,jsx,json,css,scss,html}'"
+    "format": "prettier --write 'src/**/*.{js,jsx,json,css,scss,html}'",
+    "storybook": "start-storybook"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.0.6",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "eslint": "^5.16.0",

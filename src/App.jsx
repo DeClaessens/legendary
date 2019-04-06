@@ -2,10 +2,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { hot } from 'react-hot-loader';
+import { Button } from './components/Button';
 
-const Container = styled.div`
-  background-color: #eee;
-`;
+const Container = styled.div``;
 
 const App = () => {
   const hello = 1;
@@ -14,6 +13,7 @@ const App = () => {
       <h1>
         Hello, world.
         <br />
+        <Button>Click me!</Button>
       </h1>
     </Container>
   );
