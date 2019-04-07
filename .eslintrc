@@ -1,6 +1,6 @@
 {
-  "parser": "babel-eslint",
-  "plugins": ["react", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "prettier", "plugin:@typescript-eslint/recommended"],
   "env": {
     "browser": true,
     "jest": true,

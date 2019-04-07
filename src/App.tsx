@@ -9,7 +9,7 @@ const Container = styled.div``;
 const App = () => {
   const hello = 1;
   return (
-    <Container class="test">
+    <Container>
       <h1>
         Hello, world.
         <br />
