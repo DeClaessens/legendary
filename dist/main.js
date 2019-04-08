@@ -302,30 +302,6 @@ eval("\n\nfunction checkDCE() {\n  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */\n
 
 /***/ }),
 
-/***/ "./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js":
-/*!*******************************************************************************!*\
-  !*** ./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js ***!
-  \*******************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("function _interopDefault(e){return e&&\"object\"==typeof e&&\"default\"in e?e.default:e}Object.defineProperty(exports,\"__esModule\",{value:!0});var React=_interopDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));function AppContainer(e){return React.Children.only(e.children)}var hot_prod=function(){return function(e){return e}},areComponentsEqual=function(e,n){return e===n},setConfig=function(){},cold=function(e){return e},configureComponent=function(){};exports.AppContainer=AppContainer,exports.hot=hot_prod,exports.areComponentsEqual=areComponentsEqual,exports.setConfig=setConfig,exports.cold=cold,exports.configureComponent=configureComponent;\n\n\n//# sourceURL=webpack:///./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js?");
-
-/***/ }),
-
-/***/ "./node_modules/react-hot-loader/index.js":
-/*!************************************************!*\
-  !*** ./node_modules/react-hot-loader/index.js ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\nvar hasWindow = typeof window !== 'undefined';\n\nif (true) {\n  module.exports = __webpack_require__(/*! ./dist/react-hot-loader.production.min.js */ \"./node_modules/react-hot-loader/dist/react-hot-loader.production.min.js\");\n} else { var jsFeaturesPresent, evalAllowed; }\n\n//# sourceURL=webpack:///./node_modules/react-hot-loader/index.js?");
-
-/***/ }),
-
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -409,17 +385,6 @@ eval("var g;\n\n// This works in non-strict mode\ng = (function() {\n\treturn th
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
-
-/***/ }),
-
 /***/ "./src/App.tsx":
 /*!*********************!*\
   !*** ./src/App.tsx ***!
@@ -428,19 +393,79 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled-base */ \"./node_modules/@emotion/styled-base/dist/styled-base.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_hot_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hot-loader */ \"./node_modules/react-hot-loader/index.js\");\n/* harmony import */ var react_hot_loader__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_hot_loader__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Button */ \"./src/components/Button.tsx\");\n\n\n/* eslint-disable no-unused-vars */\n\n\n\n\nvar Container = Object(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", {\n  target: \"e1p93rzx0\",\n  label: \"Container\"\n})( false ? undefined : \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90aG9tYXNjbGFlc3NlbnMvRG9jdW1lbnRzL2dpdC9sZWdlbmRhcnkvc3JjL0FwcC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBTTRCIiwiZmlsZSI6Ii9Vc2Vycy90aG9tYXNjbGFlc3NlbnMvRG9jdW1lbnRzL2dpdC9sZWdlbmRhcnkvc3JjL0FwcC50c3giLCJzb3VyY2VzQ29udGVudCI6WyIvKiBlc2xpbnQtZGlzYWJsZSBuby11bnVzZWQtdmFycyAqL1xuaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcbmltcG9ydCB7IGhvdCB9IGZyb20gJ3JlYWN0LWhvdC1sb2FkZXInO1xuaW1wb3J0IHsgQnV0dG9uIH0gZnJvbSAnLi9jb21wb25lbnRzL0J1dHRvbic7XG5cbmNvbnN0IENvbnRhaW5lciA9IHN0eWxlZC5kaXZgYDtcblxuY29uc3QgQXBwID0gKCkgPT4ge1xuICBjb25zdCBoZWxsbyA9IDE7XG4gIHJldHVybiAoXG4gICAgPENvbnRhaW5lcj5cbiAgICAgIDxoMT5cbiAgICAgICAgSGVsbG8sIHdvcmxkLlxuICAgICAgICA8YnIgLz5cbiAgICAgICAgPEJ1dHRvbj5DbGljayBtZSE8L0J1dHRvbj5cbiAgICAgIDwvaDE+XG4gICAgPC9Db250YWluZXI+XG4gICk7XG59O1xuXG5leHBvcnQgZGVmYXVsdCBob3QobW9kdWxlKShBcHApO1xuIl19 */\");\n\nvar App = function App() {\n  var hello = 1;\n  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Container, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(\"h1\", null, \"Hello, world.\", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(\"br\", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_Button__WEBPACK_IMPORTED_MODULE_3__[\"Button\"], null, \"Click me!\")));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Object(react_hot_loader__WEBPACK_IMPORTED_MODULE_2__[\"hot\"])(module)(App));\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/App.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Playground__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Playground */ \"./src/Playground.tsx\");\n/* eslint-disable no-unused-vars */\n\n\n\nvar App = function App() {\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Playground__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null);\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack:///./src/App.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Button.tsx":
-/*!***********************************!*\
-  !*** ./src/components/Button.tsx ***!
-  \***********************************/
-/*! exports provided: Button, default */
+/***/ "./src/Playground.tsx":
+/*!****************************!*\
+  !*** ./src/Playground.tsx ***!
+  \****************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Button\", function() { return Button; });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled-base */ \"./node_modules/@emotion/styled-base/dist/styled-base.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar StyledButton = Object(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", {\n  target: \"e26zz7s0\",\n  label: \"StyledButton\"\n})( false ? undefined : {\n  name: \"1iz4pry\",\n  styles: \"padding:10px;background-color:#eee;\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90aG9tYXNjbGFlc3NlbnMvRG9jdW1lbnRzL2dpdC9sZWdlbmRhcnkvc3JjL2NvbXBvbmVudHMvQnV0dG9uLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHK0IiLCJmaWxlIjoiL1VzZXJzL3Rob21hc2NsYWVzc2Vucy9Eb2N1bWVudHMvZ2l0L2xlZ2VuZGFyeS9zcmMvY29tcG9uZW50cy9CdXR0b24udHN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuY29uc3QgU3R5bGVkQnV0dG9uID0gc3R5bGVkLmRpdmBcbiAgcGFkZGluZzogMTBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VlZTtcbmA7XG5cbmV4cG9ydCBjb25zdCBCdXR0b24gPSBwcm9wcyA9PiB7XG4gIGNvbnN0IHsgY2hpbGRyZW4gfSA9IHByb3BzO1xuICByZXR1cm4gPFN0eWxlZEJ1dHRvbj57Y2hpbGRyZW59PC9TdHlsZWRCdXR0b24+O1xufTtcblxuZXhwb3J0IGRlZmF1bHQgQnV0dG9uO1xuIl19 */\"\n});\n\nvar Button = function Button(props) {\n  var children = props.children;\n  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledButton, null, children);\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Button);\n\n//# sourceURL=webpack:///./src/components/Button.tsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _deck_Deck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./deck/Deck */ \"./src/deck/Deck.ts\");\n/* harmony import */ var _stack_Stack__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stack/Stack */ \"./src/stack/Stack.ts\");\n/* harmony import */ var _components_Card_Card__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Card/Card */ \"./src/components/Card/Card.tsx\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\n\n\n\n\nvar Playground = function Playground(props) {\n  var deck = new _deck_Deck__WEBPACK_IMPORTED_MODULE_1__[\"Deck\"]();\n  var stack = new _stack_Stack__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n\n  var play =\n  /*#__PURE__*/\n  function () {\n    var _ref = _asyncToGenerator(\n    /*#__PURE__*/\n    regeneratorRuntime.mark(function _callee(card) {\n      var msg;\n      return regeneratorRuntime.wrap(function _callee$(_context) {\n        while (1) {\n          switch (_context.prev = _context.next) {\n            case 0:\n              _context.next = 2;\n              return card.play();\n\n            case 2:\n              msg = _context.sent;\n\n            case 3:\n            case \"end\":\n              return _context.stop();\n          }\n        }\n      }, _callee);\n    }));\n\n    return function play(_x) {\n      return _ref.apply(this, arguments);\n    };\n  }();\n\n  deck.initializePlayerDeck();\n  play(deck.cards[0]);\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"div\", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"h1\", null, \"Playground\"), deck.cards.map(function (card) {\n    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Card_Card__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n      name: card.name,\n      cost: card.cost,\n      recruitValue: card.recruitValue,\n      fightValue: card.fightValue\n    });\n  }));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Playground);\n\n//# sourceURL=webpack:///./src/Playground.tsx?");
+
+/***/ }),
+
+/***/ "./src/cards/Card.ts":
+/*!***************************!*\
+  !*** ./src/cards/Card.ts ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Card =\n/*#__PURE__*/\nfunction () {\n  function Card() {\n    var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';\n    var cost = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;\n    var recruit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;\n    var fight = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;\n\n    _classCallCheck(this, Card);\n\n    this.name = name;\n    this.cost = cost;\n    this.recruit = recruit;\n    this.fight = fight;\n  }\n\n  _createClass(Card, [{\n    key: \"play\",\n    value: function play() {\n      return Promise.resolve({\n        message: \"Played \".concat(this.name),\n        card: this\n      });\n    }\n  }]);\n\n  return Card;\n}();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Card);\n\n//# sourceURL=webpack:///./src/cards/Card.ts?");
+
+/***/ }),
+
+/***/ "./src/cards/general/ShieldAgent.ts":
+/*!******************************************!*\
+  !*** ./src/cards/general/ShieldAgent.ts ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Card */ \"./src/cards/Card.ts\");\nfunction _typeof(obj) { if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\n\n\nvar ShieldAgent =\n/*#__PURE__*/\nfunction (_Card) {\n  _inherits(ShieldAgent, _Card);\n\n  function ShieldAgent() {\n    _classCallCheck(this, ShieldAgent);\n\n    var props = {\n      name: 'Shield Agent',\n      cost: 0,\n      recruit: 1,\n      fight: 0\n    };\n    return _possibleConstructorReturn(this, _getPrototypeOf(ShieldAgent).call(this, props.name, props.cost, props.recruit, props.fight));\n  }\n\n  return ShieldAgent;\n}(_Card__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ShieldAgent);\n\n//# sourceURL=webpack:///./src/cards/general/ShieldAgent.ts?");
+
+/***/ }),
+
+/***/ "./src/cards/general/ShieldOperative.ts":
+/*!**********************************************!*\
+  !*** ./src/cards/general/ShieldOperative.ts ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Card */ \"./src/cards/Card.ts\");\nfunction _typeof(obj) { if (typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; }; } return _typeof(obj); }\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === \"object\" || typeof call === \"function\")) { return call; } return _assertThisInitialized(self); }\n\nfunction _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError(\"this hasn't been initialised - super() hasn't been called\"); } return self; }\n\nfunction _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }\n\nfunction _inherits(subClass, superClass) { if (typeof superClass !== \"function\" && superClass !== null) { throw new TypeError(\"Super expression must either be null or a function\"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }\n\nfunction _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }\n\n\n\nvar ShieldOperative =\n/*#__PURE__*/\nfunction (_Card) {\n  _inherits(ShieldOperative, _Card);\n\n  function ShieldOperative() {\n    _classCallCheck(this, ShieldOperative);\n\n    var props = {\n      name: 'Shield Operative',\n      cost: 0,\n      recruit: 0,\n      fight: 1\n    };\n    return _possibleConstructorReturn(this, _getPrototypeOf(ShieldOperative).call(this, props.name, props.cost, props.recruit, props.fight));\n  }\n\n  return ShieldOperative;\n}(_Card__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ShieldOperative);\n\n//# sourceURL=webpack:///./src/cards/general/ShieldOperative.ts?");
+
+/***/ }),
+
+/***/ "./src/components/Card/Card.tsx":
+/*!**************************************!*\
+  !*** ./src/components/Card/Card.tsx ***!
+  \**************************************/
+/*! exports provided: Card, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Card\", function() { return Card; });\n/* harmony import */ var _emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled-base */ \"./node_modules/@emotion/styled-base/dist/styled-base.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar Container = Object(_emotion_styled_base__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(\"div\", {\n  target: \"e1vfnt3r0\",\n  label: \"Container\"\n})( false ? undefined : {\n  name: \"1ag4ddr\",\n  styles: \"background-color:#eee;border:1px solid black;height:300px;width:150px;\",\n  map: \"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy90aG9tYXNjbGFlc3NlbnMvRG9jdW1lbnRzL2dpdC9sZWdlbmRhcnkvc3JjL2NvbXBvbmVudHMvQ2FyZC9DYXJkLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFVNEIiLCJmaWxlIjoiL1VzZXJzL3Rob21hc2NsYWVzc2Vucy9Eb2N1bWVudHMvZ2l0L2xlZ2VuZGFyeS9zcmMvY29tcG9uZW50cy9DYXJkL0NhcmQudHN4Iiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0LCB7IFJlYWN0RWxlbWVudCB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCBzdHlsZWQgZnJvbSAnQGVtb3Rpb24vc3R5bGVkJztcblxuaW50ZXJmYWNlIElQcm9wcyB7XG4gIG5hbWU6IHN0cmluZztcbiAgY29zdDogbnVtYmVyO1xuICByZWNydWl0VmFsdWU/OiBudW1iZXI7XG4gIGZpZ2h0VmFsdWU/OiBudW1iZXI7XG59XG5cbmNvbnN0IENvbnRhaW5lciA9IHN0eWxlZC5kaXZgXG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XG4gIGJvcmRlcjogMXB4IHNvbGlkIGJsYWNrO1xuICBoZWlnaHQ6IDMwMHB4O1xuICB3aWR0aDogMTUwcHg7XG5gO1xuXG5leHBvcnQgY29uc3QgQ2FyZDogUmVhY3QuU0ZDPElQcm9wcz4gPSAocHJvcHMpOiBSZWFjdEVsZW1lbnQ8YW55PiB8IG51bGwgPT4ge1xuICBjb25zdCB7IG5hbWUgfSA9IHByb3BzO1xuICByZXR1cm4gKFxuICAgIDxDb250YWluZXI+XG4gICAgICA8cD57bmFtZX08L3A+XG5cbiAgICAgIDxidXR0b24gdHlwZT1cImJ1dHRvblwiPlBsYXk8L2J1dHRvbj5cbiAgICA8L0NvbnRhaW5lcj5cbiAgKTtcbn07XG5cbmV4cG9ydCBkZWZhdWx0IENhcmQ7XG4iXX0= */\"\n});\n\nvar Card = function Card(props) {\n  var name = props.name;\n  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Container, null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(\"p\", null, name), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(\"button\", {\n    type: \"button\"\n  }, \"Play\"));\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (Card);\n\n//# sourceURL=webpack:///./src/components/Card/Card.tsx?");
+
+/***/ }),
+
+/***/ "./src/deck/Deck.ts":
+/*!**************************!*\
+  !*** ./src/deck/Deck.ts ***!
+  \**************************/
+/*! exports provided: Deck */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Deck\", function() { return Deck; });\n/* harmony import */ var _cards_general_ShieldAgent__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../cards/general/ShieldAgent */ \"./src/cards/general/ShieldAgent.ts\");\n/* harmony import */ var _cards_general_ShieldOperative__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cards/general/ShieldOperative */ \"./src/cards/general/ShieldOperative.ts\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\nvar Deck =\n/*#__PURE__*/\nfunction () {\n  function Deck() {\n    _classCallCheck(this, Deck);\n\n    this.cards = [];\n  }\n\n  _createClass(Deck, [{\n    key: \"initializePlayerDeck\",\n    value: function initializePlayerDeck() {\n      this.cards.push(new _cards_general_ShieldAgent__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldAgent__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldAgent__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldAgent__WEBPACK_IMPORTED_MODULE_0__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldOperative__WEBPACK_IMPORTED_MODULE_1__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldOperative__WEBPACK_IMPORTED_MODULE_1__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldOperative__WEBPACK_IMPORTED_MODULE_1__[\"default\"]());\n      this.cards.push(new _cards_general_ShieldOperative__WEBPACK_IMPORTED_MODULE_1__[\"default\"]());\n      this.shuffle();\n    }\n  }, {\n    key: \"shuffle\",\n    value: function shuffle() {\n      var currentIndex = this.cards.length;\n      var temporaryValue;\n      var randomIndex; // While there remain elements to shuffle...\n\n      while (0 !== currentIndex) {\n        // Pick a remaining element...\n        randomIndex = Math.floor(Math.random() * currentIndex);\n        currentIndex -= 1; // And swap it with the current element.\n\n        temporaryValue = this.cards[currentIndex];\n        this.cards[currentIndex] = this.cards[randomIndex];\n        this.cards[randomIndex] = temporaryValue;\n      }\n\n      return this.cards;\n    }\n  }]);\n\n  return Deck;\n}();\n\n//# sourceURL=webpack:///./src/deck/Deck.ts?");
 
 /***/ }),
 
@@ -453,6 +478,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\");\n/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ \"./src/App.tsx\");\n/* eslint-disable no-unused-vars */\n\n\n\nreact_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), document.getElementById('app'));\n\n//# sourceURL=webpack:///./src/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/stack/Stack.ts":
+/*!****************************!*\
+  !*** ./src/stack/Stack.ts ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nvar Stack =\n/*#__PURE__*/\nfunction () {\n  // The message pushed to history should probably be a class ? I dont know.\n  function Stack() {\n    _classCallCheck(this, Stack);\n\n    this.history = [];\n    this.add({\n      message: 'Stack Initialized'\n    });\n  }\n\n  _createClass(Stack, [{\n    key: \"add\",\n    value: function add(data) {\n      this.history.push(data);\n      console.log(this.history);\n    }\n  }]);\n\n  return Stack;\n}();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Stack);\n\n//# sourceURL=webpack:///./src/stack/Stack.ts?");
 
 /***/ })
 

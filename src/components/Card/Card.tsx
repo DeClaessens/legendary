@@ -6,7 +6,6 @@ interface IProps {
   cost: number;
   recruitValue?: number;
   fightValue?: number;
-
   onPlay: () => void;
 }
 
