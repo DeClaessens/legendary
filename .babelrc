@@ -11,6 +11,16 @@
         "regenerator": true,
         "useESModules": false
       }
+    ],
+    [
+      "babel-plugin-module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@": "./src",
+          "@test": "./test"
+        }
+      }
     ]
   ]
 }

@@ -1,13 +1,12 @@
 class Stack {
-  history: any; // The message pushed to history should probably be a class ? I dont know.
+  gameHistory: any; // The message pushed to history should probably be a class ? I dont know.
   constructor() {
-    this.history = [];
+    this.gameHistory = [];
     this.add({ message: 'Stack Initialized' });
   }
 
-  add(data) {
-    this.history.push(data);
-    console.log(this.history);
+  add(data): Promise<any> {
+    return Promise.resolve(this.gameHistory.push(data));
   }
 }
 

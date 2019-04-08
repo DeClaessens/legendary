@@ -1,33 +1,35 @@
-import React, { ReactElement } from 'react';
-import ShieldAgent from './cards/general/ShieldAgent';
-import { Deck } from './deck/Deck';
-import Stack from './stack/Stack';
+import React, { ReactElement, useState } from 'react';
 import Card from './components/Card/Card';
+import GameManager from './gameManager/GameManager';
+import Hand from './Hand/Hand';
 
 interface IProps {}
 
 const Playground: React.SFC<IProps> = (props): ReactElement<any> | null => {
-  const deck = new Deck();
-  const stack = new Stack();
+  const manager = new GameManager();
 
   const play = async card => {
-    console.log('hey man!');
-    const msg = await card.play();
-    stack.add(msg);
+    await manager.playCardFromHand(card);
   };
 
-  deck.initializePlayerDeck();
-  play(deck.cards[0]);
+  const draw = () => {
+    return manager.drawToHand().then(() => console.log(manager));
+  };
+
+  manager.init();
 
   return (
     <div>
       <h1>Playground</h1>
-      {deck.cards.map(card => (
+      <button type="button" onClick={draw}>
+        Draw
+      </button>
+      {manager.hand.cards.map(card => (
         <Card
           name={card.name}
           cost={card.cost}
-          recruitValue={card.recruitValue}
-          fightValue={card.fightValue}
+          recruitValue={card.recruit}
+          fightValue={card.fight}
           onPlay={() => play(card)}
         />
       ))}

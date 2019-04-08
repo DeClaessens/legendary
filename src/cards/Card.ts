@@ -11,7 +11,7 @@ class Card {
     this.fight = fight;
   }
 
-  play() {
+  play(): Promise<any> {
     return Promise.resolve({
       message: `Played ${this.name}`,
       card: this,

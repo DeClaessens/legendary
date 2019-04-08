@@ -1,8 +1,9 @@
 import ShieldAgent from '../cards/general/ShieldAgent';
 import ShieldOperative from '../cards/general/ShieldOperative';
+import Card from '@/cards/Card';
 
 export class Deck {
-  cards: Array<any>;
+  cards: Array<Card>;
 
   constructor() {
     this.cards = [];
@@ -19,6 +20,10 @@ export class Deck {
     this.cards.push(new ShieldOperative());
 
     this.shuffle();
+  }
+
+  draw(): Promise<Card> {
+    return Promise.resolve(this.cards.pop());
   }
 
   shuffle() {
