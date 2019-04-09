@@ -2,9 +2,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Playground from './Playground';
+import GameManager from '@/gameManager/GameManager';
 
 const App = () => {
-  return <Playground />;
+  const manager = new GameManager();
+  manager.init();
+  return <Playground manager={manager} />;
 };
 
 export default App;

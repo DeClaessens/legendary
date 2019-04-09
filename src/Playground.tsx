@@ -3,11 +3,11 @@ import Card from './components/Card/Card';
 import GameManager from './gameManager/GameManager';
 import Hand from './Hand/Hand';
 
-interface IProps {}
+interface IProps {
+  manager: GameManager;
+}
 
-const Playground: React.SFC<IProps> = (props): ReactElement<any> | null => {
-  const manager = new GameManager();
-
+const Playground: React.SFC<IProps> = ({ manager }): ReactElement<any> | null => {
   const play = async card => {
     await manager.playCardFromHand(card);
   };
@@ -15,8 +15,6 @@ const Playground: React.SFC<IProps> = (props): ReactElement<any> | null => {
   const draw = () => {
     return manager.drawToHand().then(() => console.log(manager));
   };
-
-  manager.init();
 
   return (
     <div>
