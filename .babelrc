@@ -21,6 +21,12 @@
           "@test": "./test"
         }
       }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": false
+      }
     ]
   ]
 }
