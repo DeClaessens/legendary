@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import styled from '@emotion/styled';
-import Playground from './Playground';
-import GameManager from '@/gameManager/GameManager';
+import Playground from './components/Playground';
 
-const App = () => {
-  const manager = new GameManager();
-  manager.init();
-  return <Playground manager={manager} />;
+const App = state => {
+  return (
+    <div>
+      <Playground />
+    </div>
+  );
 };
 
 export default App;
