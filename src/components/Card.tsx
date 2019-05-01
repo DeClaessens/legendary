@@ -10,14 +10,14 @@ const CardContainer = styled.div`
 
 interface IProps {
   name: string;
-  onPlay: () => void;
+  onPlay?: () => void;
 }
 
 export const Card: React.SFC<IProps> = ({ name, onPlay }): ReactElement<any> | null => {
   return (
     <CardContainer>
       {name}
-      <button onClick={onPlay}>play</button>
+      <button>play</button>
     </CardContainer>
   );
 };

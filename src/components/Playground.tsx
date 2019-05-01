@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { drawCardsFromDeck } from '@/actions/deck';
 import ShieldAgent from '@/cards/general/shieldAgent';
 import ShieldOperative from '@/cards/general/shieldOperative';
+import styled from '@emotion/styled';
 import Card from './Card';
 import { initialise } from '@/actions/gameManager';
 import { playCardFromHand } from '@/actions/hand';
+import PlayingArea from './PlayingArea';
+import Board from './Board';
 
 interface IProps {
   hand: any[];
@@ -14,6 +17,13 @@ interface IProps {
   onDrawCards: () => void;
   onPlayCard: (card) => void;
 }
+
+const PlaygroundContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 600px;
+  grid-template-areas: 'board playingarea';
+  height: 100vh;
+`;
 
 class Playground extends Component<IProps> {
   componentDidMount() {
@@ -32,44 +42,19 @@ class Playground extends Component<IProps> {
   }
 
   render() {
-    const { deck, hand, onDrawCards, onPlayCard } = this.props;
-    const playCard = card => {
-      onPlayCard(card);
-    };
-
-    const drawCard = () => {
-      onDrawCards();
-    };
-
     return (
-      <Fragment>
-        <div>Deck</div>
-        <button onClick={drawCard}>Draw 1</button>
-        <div>Hand</div>
-        {hand && hand.map(card => <Card name={card.name} onPlay={() => playCard(card)} />)}
-      </Fragment>
+      <PlaygroundContainer>
+        <Board />
+        <PlayingArea />
+      </PlaygroundContainer>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  deck: state.deck,
-  hand: state.hand,
-});
 
 const mapDispatchToProps = dispatch => ({
   onInitializeGame: cards => {
     dispatch(initialise(cards));
   },
-  onDrawCards: () => {
-    dispatch(drawCardsFromDeck(1));
-  },
-  onPlayCard: card => {
-    dispatch(playCardFromHand(card));
-  },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Playground);
+export default connect(mapDispatchToProps)(Playground);
