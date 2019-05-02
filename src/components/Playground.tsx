@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import { drawCardsFromDeck } from '@/actions/deck';
 import ShieldAgent from '@/cards/general/shieldAgent';
 import ShieldOperative from '@/cards/general/shieldOperative';
 import styled from '@emotion/styled';
@@ -13,7 +12,7 @@ import Board from './Board';
 interface IProps {
   hand: any[];
   deck: any[];
-  onInitializeGame: (cards) => void;
+  onInitializeGame: (id, cards) => void;
   onDrawCards: () => void;
   onPlayCard: (card) => void;
 }
@@ -29,7 +28,7 @@ class Playground extends Component<IProps> {
   componentDidMount() {
     const { onInitializeGame } = this.props;
 
-    onInitializeGame([
+    onInitializeGame('PLAYER_1', [
       ShieldAgent(),
       ShieldAgent(),
       ShieldAgent(),
@@ -51,10 +50,18 @@ class Playground extends Component<IProps> {
   }
 }
 
+const mapStateToProps = state => {
+  console.log('oh hi mark');
+  return {};
+};
+
 const mapDispatchToProps = dispatch => ({
-  onInitializeGame: cards => {
-    dispatch(initialise(cards));
+  onInitializeGame: (id, cards) => {
+    dispatch(initialise(id, cards));
   },
 });
 
-export default connect(mapDispatchToProps)(Playground);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Playground);

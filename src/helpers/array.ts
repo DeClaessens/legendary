@@ -1,5 +1,4 @@
 export const shuffle = arr => {
-  console.log(arr);
   let currentIndex = arr.length;
   let temporaryValue: any;
   let randomIndex: number;

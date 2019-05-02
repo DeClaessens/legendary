@@ -20,7 +20,7 @@ const Hand = ({ hand }) => {
     <HandContainer>
       <h1>Hand</h1>
       {hand.map(card => (
-        <Card name={card.name} />
+        <Card key={card.id} card={card} />
       ))}
     </HandContainer>
   );

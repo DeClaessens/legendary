@@ -1,11 +1,13 @@
 import reduceReducers from 'reduce-reducers';
-import deck from './deck';
+import decks from './decks';
 import hand from './hand';
+import discardPile from './discardPile';
 
 const initialState = {
-  deck: [],
+  decks: [],
   hand: [],
+  discardPile: [],
   stack: [],
 };
 
-export default reduceReducers(initialState, deck, hand);
+export default reduceReducers(initialState, decks, hand, discardPile);

@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 
 interface IProps {
-  deckId: string;
-  deck?: any;
+  discardPile?: any;
 }
 
-const DeckContainer = styled.div`
+const DiscardPileContainer = styled.div`
   font-size: 10pt;
   text-align: center;
   display: inline-block;
@@ -19,7 +18,7 @@ const DeckContainer = styled.div`
   }
 `;
 
-const DeckIndicator = styled.div`
+const DiscardPileIndicator = styled.div`
   background-color: #eee;
   border: 1px solid black;
   border-radius: 5px;
@@ -34,21 +33,21 @@ class Deck extends Component<IProps> {
   componentDidMount() {}
 
   render() {
-    const { deck, deckId } = this.props;
-    if (!deck) return null;
+    const { discardPile } = this.props;
+    if (!discardPile) return null;
 
     return (
-      <DeckContainer>
-        <p>{deckId}</p>
-        <DeckIndicator>{deck.cards.length}</DeckIndicator>
-      </DeckContainer>
+      <DiscardPileContainer>
+        <p>Discard</p>
+        <DiscardPileIndicator>{discardPile.length}</DiscardPileIndicator>
+      </DiscardPileContainer>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    deck: state.decks.find(d => d.id === ownProps.deckId),
+    discardPile: state.discardPile,
   };
 };
 

@@ -2,24 +2,24 @@ import React, { ReactElement } from 'react';
 import styled from '@emotion/styled';
 
 const CardContainer = styled.div`
-  background-color: #eee;
+  background-image: url(${(props: any) => props.backgroundImage});
+  background-size: contain;
   border: 1px solid black;
   border-radius: 4px;
   margin: 5px;
+
+  width: 70.333px;
+  height: 100px;
+  display: inline-block;
 `;
 
 interface IProps {
-  name: string;
-  onPlay?: () => void;
+  card: any;
 }
 
-export const Card: React.SFC<IProps> = ({ name, onPlay }): ReactElement<any> | null => {
-  return (
-    <CardContainer>
-      {name}
-      <button>play</button>
-    </CardContainer>
-  );
+export const Card: React.SFC<IProps> = ({ card }): ReactElement<any> | null => {
+  console.log(card);
+  return <CardContainer backgroundImage={card.imageUrl} />;
 };
 
 export default Card;

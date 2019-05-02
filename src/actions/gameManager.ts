@@ -1,12 +1,10 @@
-import { addCardsToDeck, shuffleDeck, drawCardsFromDeck } from './deck';
+import { createDeck, addCardsToDeck, shuffleDeck, drawCardsFromDeckToHand } from './deck';
 
-export const initialise = cards => dispatch => {
-  dispatch(addCardsToDeck(cards));
-  dispatch(shuffleDeck());
-};
-
-export const drawCard = () => dispatch => {
-  dispatch(drawCardsFromDeck(1));
+export const initialise = (id, cards) => dispatch => {
+  dispatch(createDeck(id));
+  dispatch(addCardsToDeck(id, cards));
+  dispatch(shuffleDeck(id));
+  dispatch(drawCardsFromDeckToHand(id, 6));
 };
 
 export default {
