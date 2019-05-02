@@ -5,7 +5,6 @@ import ShieldOperative from '@/cards/general/shieldOperative';
 import styled from '@emotion/styled';
 import Card from './Card';
 import { initialise } from '@/actions/gameManager';
-import { playCardFromHand } from '@/actions/hand';
 import PlayingArea from './PlayingArea';
 import Board from './Board';
 
@@ -51,7 +50,6 @@ class Playground extends Component<IProps> {
 }
 
 const mapStateToProps = state => {
-  console.log('oh hi mark');
   return {};
 };
 

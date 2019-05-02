@@ -1,12 +1,12 @@
 /*
  * action types
  */
-export const PLAY_CARD_FROM_HAND = 'PLAY_CARD_FROM_HAND';
+export const REMOVE_CARD_FROM_HAND = 'REMOVE_CARD_FROM_HAND';
 
 /*
  * action creators
  */
 
-export function playCardFromHand(card) {
-  return { type: PLAY_CARD_FROM_HAND, card };
+export function removeCardFromHand(card) {
+  return { type: REMOVE_CARD_FROM_HAND, card };
 }

@@ -1,8 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import Hand from './Hand';
 import Deck from './Deck';
 import DiscardPile from './DiscardPile';
+import Recruit from './Recruit';
+import Attack from './Attack';
+
+interface IProps {
+  playingArea: any;
+}
 
 const PlayingAreaContainer = styled.div`
   grid-area: playingarea;
@@ -16,17 +23,36 @@ const PilesContainer = styled.div`
   top: 0;
   right: 10px;
 `;
-const PlayingArea = props => {
+
+const PlayedCardsContainer = styled.div``;
+
+const PlayingArea = ({ playingArea }) => {
   return (
     <PlayingAreaContainer>
-      <h1>Playing</h1>
+      <h1>Playing Area</h1>
       <PilesContainer>
+        <Attack />
+        <Recruit />
         <Deck deckId="PLAYER_1" />
         <DiscardPile />
       </PilesContainer>
+      <PlayedCardsContainer>
+        {playingArea.cards.map(c => (
+          <div key={c.id}>{c.name}</div>
+        ))}
+      </PlayedCardsContainer>
       <Hand />
     </PlayingAreaContainer>
   );
 };
 
-export default PlayingArea;
+const mapStateToProps = state => ({
+  playingArea: state.playingArea,
+});
+
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PlayingArea);

@@ -5,7 +5,7 @@ export default () => ({
   id: uniqueid(),
   name: 'Shield Agent',
   cost: 0,
-  fight: 0,
+  attack: 0,
   recruit: 1,
   action: 'undefined',
   imageUrl: shieldAgent,

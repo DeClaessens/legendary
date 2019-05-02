@@ -1,0 +1,16 @@
+/* eslint-disable no-case-declarations */
+import produce from 'immer';
+import { ADD_ATTACK_POINTS } from '@/actions/attack';
+
+function attack(state, action) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case ADD_ATTACK_POINTS:
+        console.log(action.attackPoints);
+        draft.attack += action.attackPoints;
+        break;
+    }
+  });
+}
+
+export default attack;

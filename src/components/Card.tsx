@@ -15,11 +15,11 @@ const CardContainer = styled.div`
 
 interface IProps {
   card: any;
+  onPlay: () => void;
 }
 
-export const Card: React.SFC<IProps> = ({ card }): ReactElement<any> | null => {
-  console.log(card);
-  return <CardContainer backgroundImage={card.imageUrl} />;
+export const Card: React.SFC<IProps> = ({ card, onPlay }): ReactElement<any> | null => {
+  return <CardContainer onClick={onPlay} backgroundImage={card.imageUrl} />;
 };
 
 export default Card;
