@@ -8,8 +8,8 @@ const CardContainer = styled.div`
   border-radius: 4px;
   margin: 5px;
 
-  width: 70.333px;
-  height: 100px;
+  width: 105.495px;
+  height: 150px;
   display: inline-block;
 `;
 
