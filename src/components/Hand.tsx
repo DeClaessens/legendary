@@ -34,7 +34,7 @@ const Hand = ({ hand, onPlayCard }) => {
     <HandContainer>
       <h1>Hand</h1>
       {hand.map(card => (
-        <Card key={card.id} onPlay={() => onPlayCard(card)} card={card} />
+        <Card key={card.id} onInteract={() => onPlayCard(card)} card={card} />
       ))}
     </HandContainer>
   );

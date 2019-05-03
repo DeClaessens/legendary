@@ -4,17 +4,18 @@ import ShieldAgent from '@/cards/general/ShieldAgent';
 import ShieldOperative from '@/cards/general/ShieldOperative';
 import styled from '@emotion/styled';
 import Card from './Card';
-import { initialise } from '@/actions/gameManager';
+import { initialise, createAndFillDeck } from '@/actions/gameManager';
 import PlayingArea from './PlayingArea';
 import Board from './Board';
 import StackService from '@/services/stackService';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
+import { coreIronManCollection } from '@/cards/core/ironMan';
 
 interface IProps {
   hand: any[];
   deck: any[];
-  onInitializeGame: (id, cards) => void;
-  onDrawCards: () => void;
+  onInitializeGame: () => void;
+  onCreateAndFillDeck: (id, cards) => void;
   onPlayCard: (card) => void;
 }
 
@@ -27,9 +28,9 @@ const PlaygroundContainer = styled.div`
 
 class Playground extends Component<IProps> {
   componentDidMount() {
-    const { onInitializeGame } = this.props;
+    const { onInitializeGame, onCreateAndFillDeck } = this.props;
 
-    onInitializeGame('PLAYER_1', [
+    onCreateAndFillDeck('PLAYER_1', [
       new ShieldAgent(),
       new ShieldAgent(),
       new ShieldAgent(),
@@ -38,11 +39,15 @@ class Playground extends Component<IProps> {
       new ShieldAgent(),
       new ShieldAgent(),
       new ShieldAgent(),
-      new EndlessInventionIronMan(),
-      new EndlessInventionIronMan(),
-      new EndlessInventionIronMan(),
-      new EndlessInventionIronMan(),
+      new ShieldOperative(),
+      new ShieldOperative(),
+      new ShieldOperative(),
+      new ShieldOperative(),
     ]);
+
+    onCreateAndFillDeck('HQ', [...coreIronManCollection()]);
+
+    onInitializeGame();
   }
 
   render() {
@@ -60,8 +65,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onInitializeGame: (id, cards) => {
-    dispatch(initialise(id, cards));
+  onCreateAndFillDeck: (id, cards) => {
+    dispatch(createAndFillDeck(id, cards));
+  },
+  onInitializeGame: () => {
+    dispatch(initialise());
   },
 });
 

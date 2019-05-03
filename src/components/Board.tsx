@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import Headquarters from './Headquarters';
 
 const BoardContainer = styled.div`
   grid-area: board;
@@ -24,6 +25,7 @@ const Board = props => {
       </VillainBoard>
       <HeroBoard>
         <h1>Hero!</h1>
+        <Headquarters />
       </HeroBoard>
     </BoardContainer>
   );

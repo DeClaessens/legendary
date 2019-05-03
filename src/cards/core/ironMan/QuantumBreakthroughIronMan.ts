@@ -1,11 +1,11 @@
 import { uniqueid } from '@/helpers/uid';
-import artwork from '../../../images/iron-man-1.jpg';
-import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
+import artwork from '../../../images/iron-man-4.jpg';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
+import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 
-export default class EndlessInventionIronMan {
+export default class QuantumBreakthroughIronMan {
   id;
 
   name;
@@ -24,12 +24,12 @@ export default class EndlessInventionIronMan {
 
   constructor() {
     this.id = uniqueid();
-    this.name = 'Endless Invention - Iron Man';
-    this.cost = 3;
-    this.attack = 0;
+    this.name = 'Arc Reactor - Iron Man';
+    this.cost = 7;
+    this.attack = 3;
     this.recruit = 0;
     this.deckId = null;
-    this.heroClass = HeroClass.TECH;
+    this.heroClass = HeroClass.RANGED;
     this.imageUrl = artwork;
   }
 
@@ -38,13 +38,18 @@ export default class EndlessInventionIronMan {
   }
 
   restoreToDefaults() {
-    this.attack = 0;
+    this.attack = 2;
     this.recruit = 0;
   }
 
   action() {
     this.drawCard();
-    if (StackService.findCardByHeroClass(HeroClass.TECH)) this.drawCard();
+    this.drawCard();
+    if (StackService.findCardByHeroClass(HeroClass.TECH)) {
+      this.drawCard();
+      this.drawCard();
+    }
+
     return Promise.resolve(true);
   }
 }
