@@ -4,6 +4,7 @@ import { addCardToDiscardPile } from './discardPile';
 import { addRecruitPoints } from './recruit';
 import { addAttackPoints } from './attack';
 import { addCardToPlayingArea } from './playingArea';
+import { addEventToStack } from './stack';
 
 export const initialise = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -15,8 +16,14 @@ export const initialise = (id, cards) => dispatch => {
 export const playCardFromHand = card => dispatch => {
   dispatch(removeCardFromHand(card));
   dispatch(addCardToPlayingArea(card));
+  if (typeof card.action !== undefined) card.action();
   dispatch(addRecruitPoints(card.recruit));
   dispatch(addAttackPoints(card.attack));
+  dispatch(addEventToStack('Played a card', card));
+};
+
+export const drawCardFromPlayerDeck = id => dispatch => {
+  dispatch(drawCardsFromDeckToHand(id, 1));
 };
 
 export default {

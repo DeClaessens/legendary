@@ -1,12 +1,32 @@
 import { uniqueid } from '@/helpers/uid';
-import shieldOperative from '../../images/shieldOperative.png';
+import shieldOperativeArt from '../../images/shieldOperative.png';
 
-export default () => ({
-  id: uniqueid(),
-  name: 'Shield Operative',
-  cost: 0,
-  attack: 1,
-  recruit: 0,
-  action: undefined,
-  imageUrl: shieldOperative,
-});
+export default class shieldOperative {
+  id;
+
+  name;
+
+  cost;
+
+  attack;
+
+  recruit;
+
+  deckId;
+
+  imageUrl;
+
+  constructor() {
+    this.id = uniqueid();
+    this.name = 'Shield Agent';
+    this.cost = 0;
+    this.attack = 1;
+    this.recruit = 0;
+    this.deckId = null;
+    this.imageUrl = shieldOperativeArt;
+  }
+
+  action() {
+    return Promise.resolve(false);
+  }
+}

@@ -6,7 +6,6 @@ function attack(state, action) {
   return produce(state, draft => {
     switch (action.type) {
       case ADD_ATTACK_POINTS:
-        console.log(action.attackPoints);
         draft.attack += action.attackPoints;
         break;
     }

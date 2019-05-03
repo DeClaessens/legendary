@@ -1,12 +1,14 @@
 import React, { Fragment, Component } from 'react';
 import { connect } from 'react-redux';
-import ShieldAgent from '@/cards/general/shieldAgent';
-import ShieldOperative from '@/cards/general/shieldOperative';
+import ShieldAgent from '@/cards/general/ShieldAgent';
+import ShieldOperative from '@/cards/general/ShieldOperative';
 import styled from '@emotion/styled';
 import Card from './Card';
 import { initialise } from '@/actions/gameManager';
 import PlayingArea from './PlayingArea';
 import Board from './Board';
+import StackService from '@/services/stackService';
+import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 
 interface IProps {
   hand: any[];
@@ -28,14 +30,14 @@ class Playground extends Component<IProps> {
     const { onInitializeGame } = this.props;
 
     onInitializeGame('PLAYER_1', [
-      ShieldAgent(),
-      ShieldAgent(),
-      ShieldAgent(),
-      ShieldAgent(),
-      ShieldOperative(),
-      ShieldOperative(),
-      ShieldOperative(),
-      ShieldOperative(),
+      new ShieldAgent(),
+      new ShieldAgent(),
+      new ShieldAgent(),
+      new ShieldAgent(),
+      new EndlessInventionIronMan(),
+      new EndlessInventionIronMan(),
+      new EndlessInventionIronMan(),
+      new EndlessInventionIronMan(),
     ]);
   }
 

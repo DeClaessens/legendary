@@ -5,6 +5,7 @@ import discardPile from './discardPile';
 import attack from './attack';
 import recruit from './recruit';
 import playingArea from './playingArea';
+import stack from './stack';
 
 const initialState = {
   decks: [],
@@ -18,4 +19,4 @@ const initialState = {
   recruit: 0,
 };
 
-export default reduceReducers(initialState, decks, hand, discardPile, attack, recruit, playingArea);
+export default reduceReducers(initialState, decks, hand, discardPile, attack, recruit, playingArea, stack);
