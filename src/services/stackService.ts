@@ -1,9 +1,10 @@
 import { store } from '../index';
 
 const StackService = {
-  /* hello: () => {
-    console.log(store.getState());
-  }, */
+  findCardByHeroClass: heroClass => {
+    const { stack } = store.getState();
+    return stack.find(messages => messages.card.heroClass === heroClass);
+  },
 };
 
 export default StackService;

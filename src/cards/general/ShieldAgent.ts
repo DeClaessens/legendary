@@ -1,5 +1,6 @@
 import { uniqueid } from '@/helpers/uid';
 import shieldAgentArt from '../../images/shieldAgent.jpg';
+import { HeroClass } from '@/helpers/heroClasses';
 
 export default class shieldAgent {
   id;
@@ -14,6 +15,8 @@ export default class shieldAgent {
 
   deckId;
 
+  heroClass;
+
   imageUrl;
 
   constructor() {
@@ -23,6 +26,7 @@ export default class shieldAgent {
     this.attack = 0;
     this.recruit = 1;
     this.deckId = null;
+    this.heroClass = HeroClass.BASIC;
     this.imageUrl = shieldAgentArt;
   }
 

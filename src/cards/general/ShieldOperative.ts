@@ -1,5 +1,6 @@
 import { uniqueid } from '@/helpers/uid';
 import shieldOperativeArt from '../../images/shieldOperative.png';
+import { HeroClass } from '@/helpers/heroClasses';
 
 export default class shieldOperative {
   id;
@@ -14,6 +15,8 @@ export default class shieldOperative {
 
   deckId;
 
+  heroClass;
+
   imageUrl;
 
   constructor() {
@@ -23,6 +26,7 @@ export default class shieldOperative {
     this.attack = 1;
     this.recruit = 0;
     this.deckId = null;
+    this.heroClass = HeroClass.BASIC;
     this.imageUrl = shieldOperativeArt;
   }
 
