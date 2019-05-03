@@ -1,5 +1,7 @@
 import { uniqueid } from '@/helpers/uid';
-import endlessInventionIronManArt from '../../../images/endlessInventionIronMan.jpg';
+import endlessInventionIronManArt from '../../../images/shieldOperative.png';
+import { drawCardFromPlayerDeck } from '@/actions/gameManager';
+import { store } from '../../../index';
 
 export default class EndlessInventionIronMan {
   id;
@@ -27,6 +29,7 @@ export default class EndlessInventionIronMan {
   }
 
   action() {
-    return Promise.resolve(false);
+    store.dispatch(drawCardFromPlayerDeck(this.deckId));
+    return Promise.resolve(true);
   }
 }

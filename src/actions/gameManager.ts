@@ -1,3 +1,4 @@
+import { createDraft } from 'immer';
 import { createDeck, addCardsToDeck, shuffleDeck, drawCardsFromDeckToHand } from './deck';
 import { removeCardFromHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
@@ -14,15 +15,17 @@ export const initialise = (id, cards) => dispatch => {
 };
 
 export const playCardFromHand = card => dispatch => {
-  dispatch(removeCardFromHand(card));
-  dispatch(addCardToPlayingArea(card));
-  if (typeof card.action !== undefined) card.action();
-  dispatch(addRecruitPoints(card.recruit));
-  dispatch(addAttackPoints(card.attack));
-  dispatch(addEventToStack('Played a card', card));
+  card.action().then(() => {
+    dispatch(removeCardFromHand(card));
+    dispatch(addCardToPlayingArea(card));
+    dispatch(addRecruitPoints(card.recruit));
+    dispatch(addAttackPoints(card.attack));
+    dispatch(addEventToStack('Played a card', card));
+  });
 };
 
 export const drawCardFromPlayerDeck = id => dispatch => {
+  console.log('drawing ?');
   dispatch(drawCardsFromDeckToHand(id, 1));
 };
 
