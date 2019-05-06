@@ -6,16 +6,22 @@ import { playCardFromHand, buyCardFromHeadquarters } from '@/actions/gameManager
 
 interface Hand {
   hand: any[];
+  recruit: number;
   onBuyCard: (card) => void;
 }
 
 const HeadQuartersContainer = styled.div``;
 
-const Headquarters = ({ headquarters, onBuyCard }) => {
+const Headquarters = ({ headquarters, recruit, onBuyCard }) => {
+  const buyCard = card => {
+    if (recruit >= card.cost) {
+      onBuyCard(card);
+    }
+  };
   return (
     <HeadQuartersContainer>
       {headquarters.map(card => (
-        <Card key={card.id} card={card} onInteract={() => onBuyCard(card)} />
+        <Card key={card.id} card={card} onInteract={() => buyCard(card)} />
       ))}
     </HeadQuartersContainer>
   );
@@ -23,6 +29,7 @@ const Headquarters = ({ headquarters, onBuyCard }) => {
 
 const mapStateToProps = state => ({
   headquarters: state.headquarters,
+  recruit: state.recruit,
 });
 
 const mapDispatchToProps = dispatch => ({
