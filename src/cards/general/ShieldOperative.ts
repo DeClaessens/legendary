@@ -21,7 +21,7 @@ export default class shieldOperative {
 
   constructor() {
     this.id = uniqueid();
-    this.name = 'Shield Agent';
+    this.name = 'Shield Operative';
     this.cost = 0;
     this.attack = 1;
     this.recruit = 0;

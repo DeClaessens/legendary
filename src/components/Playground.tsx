@@ -10,6 +10,7 @@ import Board from './Board';
 import StackService from '@/services/stackService';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 import { coreIronManCollection } from '@/cards/core/ironMan';
+import Hand from './Hand';
 
 interface IProps {
   hand: any[];
@@ -22,7 +23,10 @@ interface IProps {
 const PlaygroundContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 600px;
-  grid-template-areas: 'board playingarea';
+  grid-template-rows: 1fr 300px;
+  grid-template-areas:
+    'board playingarea'
+    'hand  hand';
   height: 100vh;
 `;
 
@@ -55,6 +59,7 @@ class Playground extends Component<IProps> {
       <PlaygroundContainer>
         <Board />
         <PlayingArea />
+        <Hand />
       </PlaygroundContainer>
     );
   }

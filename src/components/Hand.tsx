@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import Card from './Card';
 import { playCardFromHand } from '@/actions/gameManager';
+import { ItemTypes } from '@/helpers/constants';
 
 interface Hand {
   hand: any[];
@@ -11,9 +12,8 @@ interface Hand {
 
 const HandContainer = styled.div`
   border-top: 1px solid black;
-  position: absolute;
   bottom: 0;
-  height: 400px;
+  height: 100px;
   width: 100%;
 `;
 
@@ -34,7 +34,7 @@ const Hand = ({ hand, onPlayCard }) => {
     <HandContainer>
       <h1>Hand</h1>
       {hand.map(card => (
-        <Card key={card.id} onInteract={() => onPlayCard(card)} card={card} />
+        <Card key={card.id} location={ItemTypes.LOCATIONS.HAND} onInteract={() => onPlayCard(card)} card={card} />
       ))}
     </HandContainer>
   );

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import Card from './Card';
 import { playCardFromHand, buyCardFromHeadquarters } from '@/actions/gameManager';
+import { ItemTypes } from '@/helpers/constants';
 
 interface Hand {
   hand: any[];
@@ -21,7 +22,7 @@ const Headquarters = ({ headquarters, recruit, onBuyCard }) => {
   return (
     <HeadQuartersContainer>
       {headquarters.map(card => (
-        <Card key={card.id} card={card} onInteract={() => buyCard(card)} />
+        <Card key={card.id} location={ItemTypes.LOCATIONS.HEADQUARTERS} card={card} onInteract={() => buyCard(card)} />
       ))}
     </HeadQuartersContainer>
   );
