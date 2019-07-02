@@ -13,6 +13,10 @@ const StackService = {
       return count;
     }, 0);
   },
+  recruitPointsMadeThisTurn: () => {
+    const { turnStatistics } = store.getState();
+    return turnStatistics.recruitEarned;
+  },
 };
 
 export default StackService;

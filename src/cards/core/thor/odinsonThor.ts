@@ -1,11 +1,9 @@
 import { uniqueid } from '@/helpers/uid';
-import artwork from '../../../images/iron-man-3.jpg';
-import { drawCardFromPlayerDeck } from '@/actions/gameManager';
-import { store } from '../../../index';
+import artwork from '../../../images/thor-4.jpg';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
 
-export default class ArcReactorIronMan {
+export default class OdinsonThor {
   id;
 
   name;
@@ -24,22 +22,22 @@ export default class ArcReactorIronMan {
 
   constructor() {
     this.id = uniqueid();
-    this.name = 'Arc Reactor - Iron Man';
-    this.cost = 5;
-    this.attack = 3;
+    this.name = 'Odinson - Thor';
+    this.cost = 3;
+    this.attack = 2;
     this.recruit = 0;
     this.deckId = null;
-    this.heroClass = HeroClass.TECH;
+    this.heroClass = HeroClass.STRENGTH;
     this.imageUrl = artwork;
   }
 
   restoreToDefaults() {
-    this.attack = 3;
+    this.attack = 2;
     this.recruit = 0;
   }
 
   action() {
-    this.attack += StackService.countCardsByHeroClass(HeroClass.TECH);
+    if (StackService.findCardByHeroClass(HeroClass.STRENGTH)) this.recruit += 2;
     return Promise.resolve(true);
   }
 }

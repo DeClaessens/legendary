@@ -7,6 +7,7 @@ import recruit from './recruit';
 import playingArea from './playingArea';
 import stack from './stack';
 import headquarters from './headquarters';
+import turnStatistics from './turnStatistics';
 
 const initialState = {
   decks: [],
@@ -15,6 +16,11 @@ const initialState = {
   stack: [],
   playingArea: {
     cards: [],
+  },
+  turnStatistics: {
+    recruitEarned: 0,
+    attackEarned: 0,
+    modifiers: [],
   },
   headquarters: [],
   attack: 0,
@@ -31,4 +37,5 @@ export default reduceReducers(
   playingArea,
   stack,
   headquarters,
+  turnStatistics,
 );

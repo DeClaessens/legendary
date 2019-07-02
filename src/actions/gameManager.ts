@@ -8,12 +8,13 @@ import {
 } from './deck';
 import { removeCardFromHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
-import { addRecruitPoints } from './recruit';
+import { addRecruitPoints, deductRecruitPoints } from './recruit';
 import { addAttackPoints } from './attack';
 import { addCardToPlayingArea } from './playingArea';
 import { addEventToStack } from './stack';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 import { removeCardFromHeadquarters } from './headquarters';
+import { updateTurnStatistics } from './turnStatistics';
 
 export const createAndFillDeck = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -32,6 +33,7 @@ export const playCardFromHand = card => dispatch => {
     dispatch(addCardToPlayingArea(card));
     dispatch(addRecruitPoints(card.recruit));
     dispatch(addAttackPoints(card.attack));
+    dispatch(updateTurnStatistics(card.attack, card.recruit));
     dispatch(addEventToStack('Played a card', card));
   });
 };
@@ -42,6 +44,7 @@ export const drawCardFromDeckToHeadquarters = (id = 'HQ', amount = 1) => dispatc
 
 export const buyCardFromHeadquarters = card => dispatch => {
   dispatch(removeCardFromHeadquarters(card));
+  dispatch(deductRecruitPoints(card.cost));
   dispatch(addCardToDiscardPile(card));
   dispatch(drawCardsFromDeckToHeadquarters('HQ', 1));
 };

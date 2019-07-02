@@ -1,11 +1,11 @@
 import { uniqueid } from '@/helpers/uid';
-import artwork from '../../../images/iron-man-3.jpg';
+import artwork from '../../../images/thor-1.jpg';
 import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
 
-export default class ArcReactorIronMan {
+export default class GodOfThunderThor {
   id;
 
   name;
@@ -24,22 +24,22 @@ export default class ArcReactorIronMan {
 
   constructor() {
     this.id = uniqueid();
-    this.name = 'Arc Reactor - Iron Man';
-    this.cost = 5;
-    this.attack = 3;
-    this.recruit = 0;
+    this.name = 'God Of Thunder - Thor';
+    this.cost = 8;
+    this.attack = 0;
+    this.recruit = 5;
     this.deckId = null;
-    this.heroClass = HeroClass.TECH;
+    this.heroClass = HeroClass.RANGED;
     this.imageUrl = artwork;
   }
 
   restoreToDefaults() {
-    this.attack = 3;
-    this.recruit = 0;
+    this.attack = 0;
+    this.recruit = 5;
   }
 
   action() {
-    this.attack += StackService.countCardsByHeroClass(HeroClass.TECH);
+    // add modifier
     return Promise.resolve(true);
   }
 }

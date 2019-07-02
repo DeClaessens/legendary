@@ -24,12 +24,12 @@ export default class QuantumBreakthroughIronMan {
 
   constructor() {
     this.id = uniqueid();
-    this.name = 'Arc Reactor - Iron Man';
+    this.name = 'Quantum Breakthrough - Iron Man';
     this.cost = 7;
-    this.attack = 3;
+    this.attack = 0;
     this.recruit = 0;
     this.deckId = null;
-    this.heroClass = HeroClass.RANGED;
+    this.heroClass = HeroClass.TECH;
     this.imageUrl = artwork;
   }
 
@@ -38,7 +38,7 @@ export default class QuantumBreakthroughIronMan {
   }
 
   restoreToDefaults() {
-    this.attack = 2;
+    this.attack = 0;
     this.recruit = 0;
   }
 

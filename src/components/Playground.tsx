@@ -11,6 +11,7 @@ import StackService from '@/services/stackService';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 import { coreIronManCollection } from '@/cards/core/ironMan';
 import Hand from './Hand';
+import { coreThorCollection } from '@/cards/core/thor';
 
 interface IProps {
   hand: any[];
@@ -49,7 +50,7 @@ class Playground extends Component<IProps> {
       new ShieldOperative(),
     ]);
 
-    onCreateAndFillDeck('HQ', [...coreIronManCollection()]);
+    onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
 
     onInitializeGame();
   }

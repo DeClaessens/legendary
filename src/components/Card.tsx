@@ -18,6 +18,12 @@ const CardContainer = styled.div`
   width: 105.495px;
   height: 150px;
 
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
   visibility: ${(props: any) => (props.isDragging ? 'hidden' : 'visible')};
 
   &.isDragging {
@@ -58,7 +64,7 @@ export const Card: React.SFC<IProps> = ({ card, onInteract, location }): ReactEl
   const handleMouseOver = () => {
     hoverTimout = setTimeout(() => {
       setHovering(true);
-    }, 1000);
+    }, 400);
   };
   const handleMouseOut = () => {
     clearTimeout(hoverTimout);
