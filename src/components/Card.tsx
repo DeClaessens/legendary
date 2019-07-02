@@ -1,24 +1,26 @@
-import React, { ReactElement } from 'react';
+import React, { ReactElement, Fragment, useState } from 'react';
+import { Manager, Reference, Popper } from 'react-popper';
 import styled from '@emotion/styled';
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from '@/helpers/constants';
+import CardHover from './CardHover';
+
+const CardWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+`;
 
 const CardContainer = styled.div`
   background-image: url(${(props: any) => props.backgroundImage});
   background-size: contain;
-  border: 1px solid black;
   border-radius: 4px;
   margin: 5px;
-
   width: 105.495px;
   height: 150px;
-
-  display: inline-block;
 
   visibility: ${(props: any) => (props.isDragging ? 'hidden' : 'visible')};
 
   &.isDragging {
-    display: none;
     background-color: red !important;
     background-image: unset !important;
   }
@@ -41,23 +43,39 @@ export const Card: React.SFC<IProps> = ({ card, onInteract, location }): ReactEl
         return ItemTypes.CARDS.FROM_HAND;
     }
   };
+  const [hovering, setHovering] = useState(false);
   const [{ isDragging }, drag] = useDrag({
     item: { card, type: defineCardType() },
+    begin: () => handleMouseOut(),
+    end: () => handleMouseOut(),
+    canDrag: () => location === ItemTypes.LOCATIONS.HAND,
     collect: monitor => ({
       isDragging: !!monitor.isDragging(),
     }),
   });
 
-  console.log(isDragging);
+  let hoverTimout;
+  const handleMouseOver = () => {
+    hoverTimout = setTimeout(() => {
+      setHovering(true);
+    }, 1000);
+  };
+  const handleMouseOut = () => {
+    clearTimeout(hoverTimout);
+    setHovering(false);
+  };
 
   return (
-    <CardContainer
-      className={isDragging && 'isDragging'}
-      ref={drag}
-      IsDragging={isDragging}
-      backgroundImage={card.imageUrl}
-      onClick={onInteract}
-    />
+    <CardWrapper onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+      <CardContainer
+        ref={drag}
+        className={isDragging && 'isDragging'}
+        IsDragging={isDragging}
+        backgroundImage={card.imageUrl}
+        onClick={onInteract}
+      />
+      {hovering && !isDragging && <CardHover card={card} />}
+    </CardWrapper>
   );
 };
 
