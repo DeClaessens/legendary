@@ -5,6 +5,7 @@ import {
   shuffleDeck,
   drawCardsFromDeckToHand,
   drawCardsFromDeckToHeadquarters,
+  drawCardsFromDeckToCity,
 } from './deck';
 import { removeCardFromHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
@@ -25,6 +26,7 @@ export const createAndFillDeck = (id, cards) => dispatch => {
 export const initialise = () => dispatch => {
   dispatch(drawCardsFromDeckToHand('PLAYER_1', 6));
   dispatch(drawCardsFromDeckToHeadquarters('HQ', 5));
+  dispatch(drawCardsFromDeckToCity('VILLAIN', 1));
 };
 
 export const playCardFromHand = card => dispatch => {
@@ -47,6 +49,10 @@ export const buyCardFromHeadquarters = card => dispatch => {
   dispatch(deductRecruitPoints(card.cost));
   dispatch(addCardToDiscardPile(card));
   dispatch(drawCardsFromDeckToHeadquarters('HQ', 1));
+};
+
+export const fightCardFromCity = card => dispatch => {
+  //do something
 };
 
 export const drawCardFromPlayerDeck = id => dispatch => {

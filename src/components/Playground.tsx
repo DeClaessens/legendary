@@ -10,6 +10,7 @@ import Board from './Board';
 import StackService from '@/services/stackService';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 import { coreIronManCollection } from '@/cards/core/ironMan';
+import { starterDeck } from '@/cards/general';
 import Hand from './Hand';
 import { coreThorCollection } from '@/cards/core/thor';
 
@@ -35,21 +36,8 @@ class Playground extends Component<IProps> {
   componentDidMount() {
     const { onInitializeGame, onCreateAndFillDeck } = this.props;
 
-    onCreateAndFillDeck('PLAYER_1', [
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldAgent(),
-      new ShieldOperative(),
-      new ShieldOperative(),
-      new ShieldOperative(),
-      new ShieldOperative(),
-    ]);
-
+    onCreateAndFillDeck('PLAYER_1', [...starterDeck()]);
+    onCreateAndFillDeck('VILLAIN', [...coreIronManCollection()]);
     onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
 
     onInitializeGame();

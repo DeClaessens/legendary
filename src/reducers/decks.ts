@@ -6,6 +6,7 @@ import {
   DRAW_CARDS_FROM_DECK_TO_HAND,
   CREATE_DECK,
   DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS,
+  DRAW_CARDS_FROM_DECK_TO_CITY,
 } from '../actions/deck';
 import { shuffle } from '../helpers/array';
 import { uniqueid } from '@/helpers/uid';
@@ -13,7 +14,7 @@ import addToStack, { StackTypes } from '@/helpers/stack';
 
 function decks(state, action) {
   return produce(state, draft => {
-    const { decks, hand, stack, headquarters } = draft;
+    const { decks, hand, stack, headquarters, city } = draft;
 
     const findDeckById = id => {
       return decks.find(deck => deck.id === id);
@@ -43,6 +44,11 @@ function decks(state, action) {
       case DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS:
         for (let i = 0; i < action.amount; i++) {
           headquarters.push(deck.cards.pop());
+        }
+        break;
+      case DRAW_CARDS_FROM_DECK_TO_CITY:
+        for (let i = 0; i < action.amount; i++) {
+          city.push(deck.cards.pop());
         }
         break;
     }

@@ -23,6 +23,7 @@ const initialState = {
     modifiers: [],
   },
   headquarters: [],
+  city: [],
   attack: 0,
   recruit: 0,
 };
