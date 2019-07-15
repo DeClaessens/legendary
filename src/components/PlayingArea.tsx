@@ -15,11 +15,15 @@ interface IProps {
   onPlayCard: (card) => void;
 }
 
-const PlayingAreaContainer = styled.div`
+interface IPlayingAreaContainer {
+  isOver: boolean;
+  ref: any;
+}
+
+const PlayingAreaContainer = styled.div<IPlayingAreaContainer>`
   grid-area: playingarea;
   border-left: 1px solid black;
   position: relative;
-  ${(props: any) => (props.isOver ? 'background-color: green' : 'background-color: red')};
 `;
 
 const PilesContainer = styled.div`
@@ -35,7 +39,6 @@ const PlayingArea = ({ playingArea, onPlayCard }) => {
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.CARDS.FROM_HAND,
     drop: (item, monitor) => {
-      console.log(item);
       onPlayCard(item.card);
     },
     collect: monitor => ({

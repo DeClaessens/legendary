@@ -52,7 +52,10 @@ export const buyCardFromHeadquarters = card => dispatch => {
 };
 
 export const fightCardFromCity = card => dispatch => {
-  //do something
+  // do something
+  // removeCardFromCity
+  // deductAttackPoints
+  // addCardToVictoryPile
 };
 
 export const drawCardFromPlayerDeck = id => dispatch => {

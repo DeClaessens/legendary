@@ -13,6 +13,7 @@ import { coreIronManCollection } from '@/cards/core/ironMan';
 import { starterDeck } from '@/cards/general';
 import Hand from './Hand';
 import { coreThorCollection } from '@/cards/core/thor';
+import Sentinel from '@/cards/core/villains/henchmen/Sentinel';
 
 interface IProps {
   hand: any[];
@@ -37,7 +38,7 @@ class Playground extends Component<IProps> {
     const { onInitializeGame, onCreateAndFillDeck } = this.props;
 
     onCreateAndFillDeck('PLAYER_1', [...starterDeck()]);
-    onCreateAndFillDeck('VILLAIN', [...coreIronManCollection()]);
+    onCreateAndFillDeck('VILLAIN', [new Sentinel(), new Sentinel(), new Sentinel(), new Sentinel()]);
     onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
 
     onInitializeGame();

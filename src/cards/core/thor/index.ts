@@ -1,7 +1,7 @@
-import GodOfThunderThor from './godOfThunderThor';
-import SurgeOfPowerThor from './surgeOfPowerThor';
-import OdinsonThor from './odinsonThor';
-import CallLightningThor from './callLightningThor';
+import GodOfThunderThor from './GodOfThunderThor';
+import SurgeOfPowerThor from './SurgeOfPowerThor';
+import OdinsonThor from './OdinsonThor';
+import CallLightningThor from './CallLightningThor';
 
 export const coreThorCollection = () => {
   return [
