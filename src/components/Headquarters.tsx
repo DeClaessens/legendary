@@ -21,7 +21,8 @@ const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, 
   const [cardToBuy, setCardToBuy] = useState(null);
 
   const handleBuyCard = (card, spentRecruit, spentAttack = 0) => {
-    onBuyCard(card);
+    setShowModal(false);
+    onBuyCard(card, { spentAttack, spentRecruit });
   };
 
   const beforeBuyingCard = card => {
@@ -50,7 +51,7 @@ const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, 
           totalRecruit={recruit}
           totalAttack={attack}
           totalCost={cardToBuy.cost}
-          onSubmit={handleBuyCard}
+          onSubmit={(spentAttack, spentRecruit) => handleBuyCard(cardToBuy, spentAttack, spentRecruit)}
           onCancel={() => setShowModal(false)}
         />
       )}
@@ -66,8 +67,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onBuyCard: card => {
-    dispatch(buyCardFromHeadquarters(card));
+  onBuyCard: (card, currency) => {
+    dispatch(buyCardFromHeadquarters(card, currency));
   },
 });
 

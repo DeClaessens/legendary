@@ -15,7 +15,6 @@ const CostModal: React.SFC<ICostModal> = ({ totalCost, totalRecruit, totalAttack
   const [spentAttack, setSpentAttack] = useState(0);
 
   const hasProvidedEnoughToBuy = (): boolean => {
-    console.log({ spentRecruit, spentAttack, totalCost });
     return spentRecruit + spentAttack === totalCost;
   };
 

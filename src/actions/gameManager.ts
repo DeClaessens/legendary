@@ -10,7 +10,7 @@ import {
 import { removeCardFromHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
 import { addRecruitPoints, deductRecruitPoints } from './recruit';
-import { addAttackPoints } from './attack';
+import { addAttackPoints, deductAttackPoints } from './attack';
 import { addCardToPlayingArea } from './playingArea';
 import { addEventToStack } from './stack';
 import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
@@ -44,11 +44,18 @@ export const drawCardFromDeckToHeadquarters = (id = 'HQ', amount = 1) => dispatc
   dispatch(drawCardsFromDeckToHeadquarters(id, amount));
 };
 
-export const buyCardFromHeadquarters = card => dispatch => {
+interface ICurrency {
+  spentAttack?: number;
+  spentRecruit?: number;
+}
+
+export const buyCardFromHeadquarters = (card, currency: ICurrency) => dispatch => {
+  dispatch(deductRecruitPoints(currency.spentRecruit || 0));
+  dispatch(deductAttackPoints(currency.spentAttack || 0));
   dispatch(removeCardFromHeadquarters(card));
-  dispatch(deductRecruitPoints(card.cost));
   dispatch(addCardToDiscardPile(card));
   dispatch(drawCardsFromDeckToHeadquarters('HQ', 1));
+  dispatch(addEventToStack('Bought a card', card));
 };
 
 export const fightCardFromCity = card => dispatch => {
