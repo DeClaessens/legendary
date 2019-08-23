@@ -4,33 +4,23 @@ import artwork from '../../../images/iron-man-4.jpg';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
 import { drawCardFromPlayerDeck } from '@/actions/gameManager';
+import HeroCard from '@/cards/HeroCard';
+import { HeroTeam } from '@/helpers/heroTeams';
 
-export default class QuantumBreakthroughIronMan {
-  id;
-
-  name;
-
-  cost;
-
-  attack;
-
-  recruit;
-
-  deckId;
-
-  heroClass;
-
-  imageUrl;
-
+export default class QuantumBreakthroughIronMan extends HeroCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Quantum Breakthrough - Iron Man';
-    this.cost = 7;
-    this.attack = 0;
-    this.recruit = 0;
-    this.deckId = null;
-    this.heroClass = HeroClass.TECH;
-    this.imageUrl = artwork;
+    super({
+      id: uniqueid(),
+      name: 'Quantum Breakthrough',
+      hero: 'Iron Man',
+      cost: 7,
+      attack: 0,
+      recruit: 0,
+      deckId: null,
+      heroClass: HeroClass.TECH,
+      heroTeam: HeroTeam.AVENGERS,
+      imageUrl: artwork,
+    });
   }
 
   private drawCard() {

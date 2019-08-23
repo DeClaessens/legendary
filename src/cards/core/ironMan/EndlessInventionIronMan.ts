@@ -4,33 +4,22 @@ import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
+import { HeroTeam } from '@/helpers/heroTeams';
+import HeroCard from '@/cards/HeroCard';
 
-export default class EndlessInventionIronMan {
-  id;
-
-  name;
-
-  cost;
-
-  attack;
-
-  recruit;
-
-  deckId;
-
-  heroClass;
-
-  imageUrl;
-
+export default class EndlessInventionIronMan extends HeroCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Endless Invention - Iron Man';
-    this.cost = 3;
-    this.attack = 0;
-    this.recruit = 0;
-    this.deckId = null;
-    this.heroClass = HeroClass.TECH;
-    this.imageUrl = artwork;
+    super({
+      name: 'Endless Invention',
+      hero: 'Iron Man',
+      cost: 3,
+      attack: 0,
+      recruit: 0,
+      deckId: null,
+      heroClass: HeroClass.TECH,
+      heroTeam: HeroTeam.AVENGERS,
+      imageUrl: artwork,
+    });
   }
 
   private drawCard() {

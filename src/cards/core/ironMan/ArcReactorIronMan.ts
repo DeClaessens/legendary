@@ -4,33 +4,22 @@ import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
+import { HeroTeam } from '@/helpers/heroTeams';
+import HeroCard from '@/cards/HeroCard';
 
-export default class ArcReactorIronMan {
-  id;
-
-  name;
-
-  cost;
-
-  attack;
-
-  recruit;
-
-  deckId;
-
-  heroClass;
-
-  imageUrl;
-
+export default class ArcReactorIronMan extends HeroCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Arc Reactor - Iron Man';
-    this.cost = 5;
-    this.attack = 3;
-    this.recruit = 0;
-    this.deckId = null;
-    this.heroClass = HeroClass.TECH;
-    this.imageUrl = artwork;
+    super({
+      name: 'Arc Reactor',
+      hero: 'Iron Man',
+      cost: 5,
+      attack: 3,
+      recruit: 0,
+      deckId: null,
+      heroClass: HeroClass.TECH,
+      heroTeam: HeroTeam.AVENGERS,
+      imageUrl: artwork,
+    });
   }
 
   restoreToDefaults() {

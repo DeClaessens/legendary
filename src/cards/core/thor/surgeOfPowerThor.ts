@@ -4,33 +4,23 @@ import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
+import HeroCard from '@/cards/HeroCard';
+import { HeroTeam } from '@/helpers/heroTeams';
 
-export default class SurgeOfPowerThor {
-  id;
-
-  name;
-
-  cost;
-
-  attack;
-
-  recruit;
-
-  deckId;
-
-  heroClass;
-
-  imageUrl;
-
+export default class SurgeOfPowerThor extends HeroCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Surge of Power - Thor';
-    this.cost = 4;
-    this.attack = 0;
-    this.recruit = 2;
-    this.deckId = null;
-    this.heroClass = HeroClass.RANGED;
-    this.imageUrl = artwork;
+    super({
+      id: uniqueid(),
+      name: 'Surge of Power',
+      hero: 'Thor',
+      cost: 4,
+      attack: 0,
+      recruit: 2,
+      deckId: null,
+      heroClass: HeroClass.RANGED,
+      heroTeam: HeroTeam.AVENGERS,
+      imageUrl: artwork,
+    });
   }
 
   restoreToDefaults() {

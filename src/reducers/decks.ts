@@ -30,7 +30,8 @@ function decks(state, action) {
         });
         break;
       case ADD_CARDS_TO_DECK:
-        action.cards.map(card => (card.deckId = deck.id));
+        console.log(action.cards);
+        action.cards.forEach(card => (card.deckId = deck.id));
         deck.cards.push(...action.cards);
         break;
       case SHUFFLE_DECK:

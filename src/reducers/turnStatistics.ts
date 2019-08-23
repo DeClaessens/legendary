@@ -2,7 +2,7 @@
 import produce from 'immer';
 import { UPDATE_TURN_STATISTICS, RESET_TURN_STATISTICS } from '@/actions/turnStatistics';
 
-function stack(state, action) {
+function turnStatistics(state, action) {
   return produce(state, draft => {
     switch (action.type) {
       case RESET_TURN_STATISTICS:
@@ -17,4 +17,4 @@ function stack(state, action) {
   });
 }
 
-export default stack;
+export default turnStatistics;

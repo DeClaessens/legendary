@@ -1,5 +1,8 @@
 import ShieldAgent from './ShieldAgent';
 import ShieldOperative from './ShieldOperative';
+import ArcReactorIronMan from '../core/ironMan/ArcReactorIronMan';
+import EndlessInventionIronMan from '../core/ironMan/EndlessInventionIronMan';
+import GodOfThunderThor from '../core/thor/GodOfThunderThor';
 
 export const starterDeck = () => {
   return [
@@ -15,5 +18,9 @@ export const starterDeck = () => {
     new ShieldOperative(),
     new ShieldOperative(),
     new ShieldOperative(),
+    new GodOfThunderThor(),
+    new GodOfThunderThor(),
+    new GodOfThunderThor(),
+    new GodOfThunderThor(),
   ];
 };

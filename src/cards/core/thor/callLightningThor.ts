@@ -4,33 +4,23 @@ import { drawCardFromPlayerDeck } from '@/actions/gameManager';
 import { store } from '../../../index';
 import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
+import HeroCard from '@/cards/HeroCard';
+import { HeroTeam } from '@/helpers/heroTeams';
 
-export default class CallLightningThor {
-  id;
-
-  name;
-
-  cost;
-
-  attack;
-
-  recruit;
-
-  deckId;
-
-  heroClass;
-
-  imageUrl;
-
+export default class CallLightningThor extends HeroCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Call Lightning - Thor';
-    this.cost = 6;
-    this.attack = 3;
-    this.recruit = 0;
-    this.deckId = null;
-    this.heroClass = HeroClass.RANGED;
-    this.imageUrl = artwork;
+    super({
+      id: uniqueid(),
+      name: 'Call Lightning',
+      hero: 'Thor',
+      cost: 6,
+      attack: 3,
+      recruit: 0,
+      deckId: null,
+      heroClass: HeroClass.RANGED,
+      heroTeam: HeroTeam.AVENGERS,
+      imageUrl: artwork,
+    });
   }
 
   restoreToDefaults() {
