@@ -5,9 +5,9 @@ interface ICostModal {
   totalCost: number;
   totalRecruit: number;
   totalAttack: number;
-  show: boolean;
-  onSubmit: (spentRecruit, spentAttack) => void;
-  onCancel: () => void;
+  show?: boolean;
+  onSubmit?: (result) => void;
+  onCancel?: () => void;
 }
 
 const CostModal: React.SFC<ICostModal> = ({ totalCost, totalRecruit, totalAttack, show, onSubmit, onCancel }) => {
@@ -18,8 +18,11 @@ const CostModal: React.SFC<ICostModal> = ({ totalCost, totalRecruit, totalAttack
     return spentRecruit + spentAttack === totalCost;
   };
 
+  const handleSubmit = () => {
+    return onSubmit({ spentAttack, spentRecruit });
+  };
   return (
-    <ReactModal isOpen={show} contentLabel="Minimal Modal Example">
+    <>
       <p>You need: {totalCost}</p>
       <div>
         Recruiting points to spend ({totalRecruit}):{' '}
@@ -43,10 +46,10 @@ const CostModal: React.SFC<ICostModal> = ({ totalCost, totalRecruit, totalAttack
           onChange={evt => setSpentAttack(+evt.target.value)}
         />
       </div>
-      <button disabled={!hasProvidedEnoughToBuy()} onClick={() => onSubmit(spentRecruit, spentAttack)}>
-        Close Modal
+      <button disabled={!hasProvidedEnoughToBuy()} onClick={handleSubmit}>
+        Submit
       </button>
-    </ReactModal>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import Card from './Card';
 import { playCardFromHand, buyCardFromHeadquarters } from '@/actions/gameManager';
 import { ItemTypes } from '@/helpers/constants';
 import CostModal from './modals/CostModal';
+import { dialogService } from '@/helpers/dialog';
 
 interface Hand {
   hand: any[];
@@ -28,7 +29,14 @@ const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, 
   const beforeBuyingCard = card => {
     setCardToBuy(card);
     if (canSpendAttackAsRecruit) {
-      return setShowModal(true);
+      const Modal = <CostModal show totalRecruit={recruit} totalAttack={attack} totalCost={card.cost} />;
+      return dialogService
+        .open(Modal)
+        .waitForClose()
+        .then(result => {
+          handleBuyCard(card, result.spentRecruit, result.spentAttack);
+        })
+        .catch(() => console.log('cancelled or closed'));
     }
 
     if (recruit < card.cost) return false;
@@ -45,16 +53,6 @@ const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, 
           onInteract={() => beforeBuyingCard(card)}
         />
       ))}
-      {cardToBuy && showModal && (
-        <CostModal
-          show={showModal}
-          totalRecruit={recruit}
-          totalAttack={attack}
-          totalCost={cardToBuy.cost}
-          onSubmit={(spentAttack, spentRecruit) => handleBuyCard(cardToBuy, spentAttack, spentRecruit)}
-          onCancel={() => setShowModal(false)}
-        />
-      )}
     </HeadQuartersContainer>
   );
 };

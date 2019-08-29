@@ -9,11 +9,14 @@ import stack from './stack';
 import headquarters from './headquarters';
 import turnStatistics from './turnStatistics';
 import turnModifiers from './turnModifiers';
+import city from './city';
+import victoryPile from './victoryPile';
 
 const initialState = {
   decks: [],
   hand: [],
   discardPile: [],
+  victoryPile: [],
   stack: [],
   playingArea: {
     cards: [],
@@ -44,4 +47,6 @@ export default reduceReducers(
   headquarters,
   turnModifiers,
   turnStatistics,
+  city,
+  victoryPile,
 );

@@ -13,9 +13,10 @@ import { addRecruitPoints, deductRecruitPoints } from './recruit';
 import { addAttackPoints, deductAttackPoints } from './attack';
 import { addCardToPlayingArea } from './playingArea';
 import { addEventToStack } from './stack';
-import EndlessInventionIronMan from '@/cards/core/ironMan/EndlessInventionIronMan';
 import { removeCardFromHeadquarters } from './headquarters';
 import { updateTurnStatistics } from './turnStatistics';
+import { removeCardFromCity } from './city';
+import { addCardToVictoryPile } from './victoryPile';
 
 export const createAndFillDeck = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -58,11 +59,13 @@ export const buyCardFromHeadquarters = (card, currency: ICurrency) => dispatch =
   dispatch(addEventToStack('Bought a card', card));
 };
 
-export const fightCardFromCity = card => dispatch => {
-  // do something
-  // removeCardFromCity
-  // deductAttackPoints
-  // addCardToVictoryPile
+export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {
+  card.fight().then(() => {
+    dispatch(deductRecruitPoints(currency.spentRecruit || 0));
+    dispatch(deductAttackPoints(currency.spentAttack || 0));
+    dispatch(removeCardFromCity(card));
+    dispatch(addCardToVictoryPile(card));
+  });
 };
 
 export const drawCardFromPlayerDeck = id => dispatch => {

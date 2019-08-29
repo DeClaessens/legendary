@@ -20,6 +20,7 @@
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
     "babel-plugin-emotion": "^10.0.9",
+    "change-emitter": "^0.1.6",
     "file-loader": "^3.0.1",
     "immer": "^3.1.1",
     "prop-types": "^15.7.2",

@@ -1,23 +1,16 @@
 import { uniqueid } from '@/helpers/uid';
 import artwork from '../../../../images/sentinel.jpg';
+import HenchmenCard from '@/cards/HenchmenCard';
 
-export default class Sentinel {
-  id;
-
-  name;
-
-  strength;
-
-  deckId;
-
-  imageUrl;
-
+export default class Sentinel extends HenchmenCard {
   constructor() {
-    this.id = uniqueid();
-    this.name = 'Sentinel';
-    this.strength = 3;
-    this.deckId = null;
-    this.imageUrl = artwork;
+    super({
+      id: uniqueid(),
+      name: 'Sentinel',
+      strength: 3,
+      imageUrl: artwork,
+      deckId: null,
+    });
   }
 
   restoreToDefaults() {

@@ -14,6 +14,8 @@ import { starterDeck } from '@/cards/general';
 import Hand from './Hand';
 import { coreThorCollection } from '@/cards/core/thor';
 import Sentinel from '@/cards/core/villains/henchmen/Sentinel';
+import DialogComponent from './DialogContainer';
+import DialogContainer from './DialogContainer';
 
 interface IProps {
   hand: any[];
@@ -50,6 +52,7 @@ class Playground extends Component<IProps> {
         <Board />
         <PlayingArea />
         <Hand />
+        <DialogContainer />
       </PlaygroundContainer>
     );
   }

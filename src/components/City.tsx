@@ -2,26 +2,27 @@ import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled';
 import Card from './Card';
-import { playCardFromHand, buyCardFromHeadquarters } from '@/actions/gameManager';
+import { fightCardFromCity } from '@/actions/gameManager';
+import { ItemTypes } from '@/helpers/constants';
 
 interface ICity {
   hand: any[];
-  fight: number;
-  onBuyCard: (card) => void;
+  attack: number;
+  onFightCard: (card, currency) => void;
 }
 
 const CityContainer = styled.div``;
 
-const City = ({ city, fight, onBuyCard }) => {
-  const buyCard = card => {
-    if (fight >= card.cost) {
-      onBuyCard(card);
+const City = ({ city, attack, onFightCard }) => {
+  const fightCard = card => {
+    if (attack >= card.strength) {
+      onFightCard(card, { spentAttack: card.strength, spentRecruit: 0 });
     }
   };
   return (
     <CityContainer>
       {city.map(card => (
-        <Card key={card.id} card={card} onInteract={() => buyCard(card)} />
+        <Card key={card.id} card={card} location={ItemTypes.LOCATIONS.CITY} onInteract={() => fightCard(card)} />
       ))}
     </CityContainer>
   );
@@ -29,12 +30,12 @@ const City = ({ city, fight, onBuyCard }) => {
 
 const mapStateToProps = state => ({
   city: state.city,
-  fight: state.fight,
+  attack: state.attack,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onBuyCard: card => {
-    dispatch(buyCardFromHeadquarters(card));
+  onFightCard: (card, currency) => {
+    dispatch(fightCardFromCity(card, currency));
   },
 });
 
