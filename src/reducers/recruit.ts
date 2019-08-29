@@ -10,7 +10,6 @@ function recruit(state, action) {
         break;
       case DEDUCT_RECRUIT_POINTS:
         draft.recruit -= action.recruitPoints;
-        console.log(draft.recruit);
         break;
     }
   });

@@ -14,7 +14,7 @@ const DialogText = styled.p`
 `;
 
 export const getTemplate = (Template, currentTemplate?: any) => {
-  if (Template && React.isValidElement(<Template />)) {
+  if (Template && React.isValidElement(cloneElement(Template))) {
     return Template;
   }
   return currentTemplate;
@@ -79,6 +79,8 @@ const DialogContainer: React.FC<IProps> = ({ template }) => {
   const handleCloseModal = () => {
     dialogRef.reject();
   };
+
+  ReactModal.setAppElement('#app');
 
   return (
     <>
