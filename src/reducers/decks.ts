@@ -14,7 +14,7 @@ import addToStack, { StackTypes } from '@/helpers/stack';
 
 function decks(state, action) {
   return produce(state, draft => {
-    const { decks, hand, stack, headquarters, city } = draft;
+    const { decks, hand, stack, headquarters, city, discardPile } = draft;
 
     const findDeckById = id => {
       return decks.find(deck => deck.id === id);
@@ -38,6 +38,11 @@ function decks(state, action) {
         break;
       case DRAW_CARDS_FROM_DECK_TO_HAND:
         for (let i = 0; i < action.amount; i++) {
+          if (deck.cards.length === 0) {
+            if (discardPile.length === 0) break;
+            deck.cards.push(...shuffle(discardPile));
+            discardPile.length = 0;
+          }
           hand.push(deck.cards.pop());
         }
         break;

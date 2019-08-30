@@ -40,7 +40,20 @@ class Playground extends Component<IProps> {
     const { onInitializeGame, onCreateAndFillDeck } = this.props;
 
     onCreateAndFillDeck('PLAYER_1', [...starterDeck()]);
-    onCreateAndFillDeck('VILLAIN', [new Sentinel(), new Sentinel(), new Sentinel(), new Sentinel()]);
+    onCreateAndFillDeck('VILLAIN', [
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+      new Sentinel(),
+    ]);
     onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
 
     onInitializeGame();

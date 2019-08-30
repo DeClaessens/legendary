@@ -1,5 +1,7 @@
 /* eslint-disable no-underscore-dangle */
+import React from 'react';
 import { createChangeEmitter } from 'change-emitter';
+import KOModal from '@/components/modals/KOModal';
 
 class Deferred {
   promise: Promise<any>;
@@ -78,8 +80,10 @@ class DialogService {
     return dialogRef;
   }
 
-  info(title: string, text: any, options) {
-    return this.open(title, { text, ...options });
+  // Presets
+
+  openKO() {
+    return this.open(<KOModal />);
   }
 }
 

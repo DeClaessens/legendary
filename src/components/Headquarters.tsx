@@ -5,7 +5,7 @@ import Card from './Card';
 import { playCardFromHand, buyCardFromHeadquarters } from '@/actions/gameManager';
 import { ItemTypes } from '@/helpers/constants';
 import CostModal from './modals/CostModal';
-import { dialogService } from '@/helpers/dialog';
+import dialogService from '@/helpers/dialog';
 
 interface Hand {
   hand: any[];

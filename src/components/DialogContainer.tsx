@@ -2,7 +2,7 @@ import React, { Component, Fragment, useState, useEffect, cloneElement } from 'r
 import ReactModal from 'react-modal';
 import styled from '@emotion/styled';
 
-import { dialogService } from '@/helpers/dialog';
+import dialogService from '@/helpers/dialog';
 
 const DialogText = styled.p`
   margin-bottom: 20px;

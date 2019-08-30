@@ -8,11 +8,12 @@ import Deck from './Deck';
 import DiscardPile from './DiscardPile';
 import Recruit from './Recruit';
 import Attack from './Attack';
-import { playCardFromHand } from '@/actions/gameManager';
+import { playCardFromHand, endTurn, startTurn } from '@/actions/gameManager';
 
 interface IProps {
   playingArea: any;
   onPlayCard: (card) => void;
+  onEndTurn: () => void;
 }
 
 interface IPlayingAreaContainer {
@@ -35,7 +36,7 @@ const PilesContainer = styled.div`
 
 const PlayedCardsContainer = styled.div``;
 
-const PlayingArea = ({ playingArea, onPlayCard }) => {
+const PlayingArea = ({ playingArea, onPlayCard, onEndTurn }) => {
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.CARDS.FROM_HAND,
     drop: (item, monitor) => {
@@ -54,6 +55,9 @@ const PlayingArea = ({ playingArea, onPlayCard }) => {
         <Recruit />
         <Deck deckId="PLAYER_1" />
         <DiscardPile />
+        <button type="button" onClick={onEndTurn}>
+          End Turn
+        </button>
       </PilesContainer>
       <PlayedCardsContainer>
         {playingArea.cards.map(c => (
@@ -71,6 +75,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   onPlayCard: card => {
     dispatch(playCardFromHand(card));
+  },
+  onEndTurn: () => {
+    dispatch(endTurn());
+    dispatch(startTurn());
   },
 });
 

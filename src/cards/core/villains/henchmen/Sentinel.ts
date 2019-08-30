@@ -1,6 +1,7 @@
 import { uniqueid } from '@/helpers/uid';
 import artwork from '../../../../images/sentinel.jpg';
 import HenchmenCard from '@/cards/HenchmenCard';
+import dialogService from '@/helpers/dialog';
 
 export default class Sentinel extends HenchmenCard {
   constructor() {
@@ -19,6 +20,13 @@ export default class Sentinel extends HenchmenCard {
 
   fight() {
     // KO one of your heroes
-    return Promise.resolve(true);
+    return dialogService
+      .openKO()
+      .waitForClose()
+      .then(result => {
+        //ko some cards
+        return true;
+      })
+      .catch(() => Promise.reject());
   }
 }
