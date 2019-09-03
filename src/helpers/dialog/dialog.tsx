@@ -49,18 +49,6 @@ export class DialogRef<T> {
   }
 }
 
-/**
- * showDialog = () => {
- *   const dialogRef = dialogService.open('Dialog Title', MyDialogComponent);
- *   dialogRef.then((result) => {
- *       // called when the dialog is closed
- *       console.log(result)
- *   })
- *
- *   // you can also close the dialog here (when not already closed)
- *   dialogRef.close();
- * }
- */
 class DialogService {
   eventEmitter: any;
 

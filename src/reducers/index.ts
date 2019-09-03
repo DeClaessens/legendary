@@ -11,13 +11,19 @@ import turnStatistics from './turnStatistics';
 import turnModifiers from './turnModifiers';
 import city from './city';
 import victoryPile from './victoryPile';
+import KOPile from './KOPile';
+import abyss from './abyss';
 
 const initialState = {
   decks: [],
   hand: [],
   discardPile: [],
   victoryPile: [],
+  KOPile: [],
   stack: [],
+  abyss: {
+    card: null,
+  },
   playingArea: {
     cards: [],
   },
@@ -49,4 +55,6 @@ export default reduceReducers(
   turnStatistics,
   city,
   victoryPile,
+  KOPile,
+  abyss,
 );

@@ -2,7 +2,7 @@ import { uniqueid } from '@/helpers/uid';
 import shieldAgentArt from '../../images/shieldAgent.jpg';
 import { HeroClass } from '@/helpers/heroClasses';
 
-export default class shieldAgent {
+export default class ShieldAgent {
   id;
 
   name;

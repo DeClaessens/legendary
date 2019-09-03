@@ -28,5 +28,5 @@ export default class HeroCard extends BaseCard {
     this.heroTeam = cardData.heroTeam;
   }
 
-  action() {}
+  play() {}
 }

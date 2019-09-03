@@ -34,9 +34,7 @@ export default class GodOfThunderThor extends HeroCard {
   }
 
   action() {
-    console.log('god action');
     this.enableSpendAttackAsRecruitModifier();
-    console.log('v2');
     return Promise.resolve(true);
   }
 }

@@ -20,24 +20,6 @@ export const getTemplate = (Template, currentTemplate?: any) => {
   return currentTemplate;
 };
 
-/**
- * showDialog = () => {
- *   const dialogRef = dialogService.open('My Title', MyDialogTemplate, {
- *      customData: '1234'
- *   })
- *   dialogRef
- *    .waitForClose()
- *    .then(result => {
- *      console.log(result)
- *    })
- * }
- * render() {
- *    return (
- *        <button onClick={this.showDialog}> Show Dialog </button>
- *        <DialogContainer />
- *    )
- * }
- */
 interface IProps {
   template?: any;
 }
@@ -62,8 +44,8 @@ const DialogContainer: React.FC<IProps> = ({ template }) => {
 
   const addDialog = dialogRef => {
     const newTemplate = dialogRef.templateComponent;
-    setDialogRef(dialogRef);
     setDialogComponent(getTemplate(newTemplate, DialogComponent));
+    setDialogRef(dialogRef);
   };
 
   const removeDialog = () => {

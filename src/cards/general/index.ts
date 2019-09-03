@@ -18,9 +18,9 @@ export const starterDeck = () => {
     new ShieldOperative(),
     new ShieldOperative(),
     new ShieldOperative(),
-    new GodOfThunderThor(),
-    new GodOfThunderThor(),
-    new GodOfThunderThor(),
-    new GodOfThunderThor(),
+    new ShieldOperative(),
+    new ShieldOperative(),
+    new ShieldOperative(),
+    new ShieldOperative(),
   ];
 };

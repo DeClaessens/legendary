@@ -1,7 +1,11 @@
 import { uniqueid } from '@/helpers/uid';
+import { store } from '../../../../index';
 import artwork from '../../../../images/sentinel.jpg';
 import HenchmenCard from '@/cards/HenchmenCard';
 import dialogService from '@/helpers/dialog';
+import { KOCard } from '@/actions/gameManager';
+import { moveCardToCity } from '@/actions/city';
+import { addEventToStack } from '@/actions/stack';
 
 export default class Sentinel extends HenchmenCard {
   constructor() {
@@ -18,13 +22,16 @@ export default class Sentinel extends HenchmenCard {
     this.strength = 3;
   }
 
+  private KOCard(card, from) {
+    store.dispatch(KOCard(card, from));
+  }
+
   fight() {
-    // KO one of your heroes
     return dialogService
       .openKO()
       .waitForClose()
-      .then(result => {
-        //ko some cards
+      .then(({ card, from }) => {
+        this.KOCard(card, from);
         return true;
       })
       .catch(() => Promise.reject());

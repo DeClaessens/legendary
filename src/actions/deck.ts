@@ -7,6 +7,7 @@ export const SHUFFLE_DECK = 'SHUFFLE_DECK';
 export const DRAW_CARDS_FROM_DECK_TO_HAND = 'DRAW_CARDS_FROM_DECK_TO_HAND';
 export const DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS = 'DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS';
 export const DRAW_CARDS_FROM_DECK_TO_CITY = 'DRAW_CARDS_FROM_DECK_TO_CITY';
+export const DRAW_CARD_FROM_DECK_TO_ABYSS = 'DRAW_CARD_FROM_DECK_TO_ABYSS';
 
 /*
  * action creators
@@ -34,4 +35,8 @@ export function drawCardsFromDeckToHeadquarters(id, amount) {
 
 export function drawCardsFromDeckToCity(id, amount) {
   return { type: DRAW_CARDS_FROM_DECK_TO_CITY, id, amount };
+}
+
+export function drawCardFromDeckToAbyss(id) {
+  return { type: DRAW_CARD_FROM_DECK_TO_ABYSS, id };
 }

@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component, ReactElement, useEffect } from 'react';
 import { connect } from 'react-redux';
 import ShieldAgent from '@/cards/general/ShieldAgent';
 import ShieldOperative from '@/cards/general/ShieldOperative';
@@ -35,9 +35,9 @@ const PlaygroundContainer = styled.div`
   height: 100vh;
 `;
 
-class Playground extends Component<IProps> {
-  componentDidMount() {
-    const { onInitializeGame, onCreateAndFillDeck } = this.props;
+export const Playground: React.SFC<IProps> = (props): ReactElement<any> | null => {
+  useEffect(() => {
+    const { onInitializeGame, onCreateAndFillDeck } = props;
 
     onCreateAndFillDeck('PLAYER_1', [...starterDeck()]);
     onCreateAndFillDeck('VILLAIN', [
@@ -57,19 +57,19 @@ class Playground extends Component<IProps> {
     onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
 
     onInitializeGame();
-  }
+  });
 
-  render() {
-    return (
+  return (
+    <>
+      <DialogContainer />
       <PlaygroundContainer>
         <Board />
         <PlayingArea />
         <Hand />
-        <DialogContainer />
       </PlaygroundContainer>
-    );
-  }
-}
+    </>
+  );
+};
 
 const mapStateToProps = state => {
   return {};

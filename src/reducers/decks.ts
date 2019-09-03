@@ -7,6 +7,8 @@ import {
   CREATE_DECK,
   DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS,
   DRAW_CARDS_FROM_DECK_TO_CITY,
+  DRAW_CARD_FROM_DECK_TO_VOID,
+  DRAW_CARD_FROM_DECK_TO_ABYSS,
 } from '../actions/deck';
 import { shuffle } from '../helpers/array';
 import { uniqueid } from '@/helpers/uid';
@@ -55,6 +57,9 @@ function decks(state, action) {
         for (let i = 0; i < action.amount; i++) {
           city.push(deck.cards.pop());
         }
+        break;
+      case DRAW_CARD_FROM_DECK_TO_ABYSS:
+        draft.abyss.card = deck.cards.pop();
         break;
     }
   });

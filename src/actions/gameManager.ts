@@ -5,19 +5,23 @@ import {
   shuffleDeck,
   drawCardsFromDeckToHand,
   drawCardsFromDeckToHeadquarters,
-  drawCardsFromDeckToCity,
+  drawCardFromDeckToAbyss,
 } from './deck';
-import { removeCardFromHand, discardAllCardsFromHand } from './hand';
+import { removeCardFromHand, discardAllCardsFromHand, moveCardToHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
-import { addRecruitPoints, deductRecruitPoints } from './recruit';
-import { addAttackPoints, deductAttackPoints } from './attack';
-import { addCardToPlayingArea, discardAllCardsFromPlayingArea } from './playingArea';
+import { addRecruitPoints, deductRecruitPoints, resetRecruitPoints } from './recruit';
+import { addAttackPoints, deductAttackPoints, resetAttackPoints } from './attack';
+import { addCardToPlayingArea, discardAllCardsFromPlayingArea, removeCardFromPlayingArea } from './playingArea';
 import { addEventToStack } from './stack';
 import { removeCardFromHeadquarters } from './headquarters';
 import { updateTurnStatistics, resetTurnStatistics } from './turnStatistics';
 import { removeCardFromCity } from './city';
 import { addCardToVictoryPile } from './victoryPile';
 import { resetTurnModifiers } from './turnModifiers';
+import { ItemTypes } from '@/helpers/constants';
+import { addCardToKOPile } from './KOPile';
+import { store } from '..';
+import { clearAbyss } from './abyss';
 
 export const createAndFillDeck = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -28,21 +32,34 @@ export const createAndFillDeck = (id, cards) => dispatch => {
 export const initialise = () => dispatch => {
   dispatch(drawCardsFromDeckToHand('PLAYER_1', 6));
   dispatch(drawCardsFromDeckToHeadquarters('HQ', 5));
-  dispatch(drawCardsFromDeckToCity('VILLAIN', 1));
+  dispatch(drawVillainCard());
 };
 
 export const endTurn = () => dispatch => {
   dispatch(resetTurnModifiers());
   dispatch(resetTurnStatistics());
+  dispatch(resetAttackPoints());
+  dispatch(resetRecruitPoints());
   dispatch(discardAllCardsFromPlayingArea());
   dispatch(discardAllCardsFromHand());
   dispatch(drawCardsFromDeckToHand('PLAYER_1', 6));
   dispatch(addEventToStack('END'));
 };
 
+export const drawVillainCard = () => dispatch => {
+  const draw = () => Promise.resolve(dispatch(drawCardFromDeckToAbyss('VILLAIN')));
+
+  return draw()
+    .then(() => {
+      const { abyss } = store.getState();
+      return abyss.card.whenDrawn();
+    })
+    .then(() => clearAbyss());
+};
+
 export const startTurn = () => dispatch => {
   dispatch(addEventToStack('START'));
-  dispatch(drawCardsFromDeckToCity('VILLAIN', 1));
+  dispatch(drawVillainCard());
 };
 
 export const playCardFromHand = card => dispatch => {
@@ -88,6 +105,13 @@ export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {
 
 export const drawCardFromPlayerDeck = id => dispatch => {
   dispatch(drawCardsFromDeckToHand(id, 1));
+};
+
+export const KOCard = (card, from) => dispatch => {
+  if (from === ItemTypes.CARDS.FROM_HAND) dispatch(removeCardFromHand(card));
+  if (from === ItemTypes.CARDS.FROM_PLAYING_AREA) dispatch(removeCardFromPlayingArea(card));
+
+  dispatch(addCardToKOPile(card));
 };
 
 export default {

@@ -3,6 +3,7 @@
  */
 export const ADD_RECRUIT_POINTS = 'ADD_RECRUIT_POINTS';
 export const DEDUCT_RECRUIT_POINTS = 'DEDUCT_RECRUIT_POINTS';
+export const RESET_RECRUIT_POINTS = 'RESET_RECRUIT_POINTS';
 
 /*
  * action creators
@@ -14,4 +15,8 @@ export function addRecruitPoints(recruitPoints) {
 
 export function deductRecruitPoints(recruitPoints) {
   return { type: DEDUCT_RECRUIT_POINTS, recruitPoints };
+}
+
+export function resetRecruitPoints() {
+  return { type: RESET_RECRUIT_POINTS };
 }

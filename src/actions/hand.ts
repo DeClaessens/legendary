@@ -3,6 +3,7 @@
  */
 export const REMOVE_CARD_FROM_HAND = 'REMOVE_CARD_FROM_HAND';
 export const DISCARD_ALL_CARDS_FROM_HAND = 'DISCARD_ALL_CARDS_FROM_HAND';
+export const MOVE_CARD_TO_HAND = 'MOVE_CARD_TO_HAND';
 
 /*
  * action creators
@@ -14,4 +15,8 @@ export function removeCardFromHand(card) {
 
 export function discardAllCardsFromHand() {
   return { type: DISCARD_ALL_CARDS_FROM_HAND };
+}
+
+export function moveCardToHand(card) {
+  return { type: MOVE_CARD_TO_HAND, card };
 }
