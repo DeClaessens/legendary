@@ -13,5 +13,6 @@ export const ItemTypes = {
   CARD_TYPES: {
     HENCHMEN: 'henchmen',
     HERO: 'hero',
+    MASTERMIND: 'mastermind',
   },
 };
