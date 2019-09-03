@@ -14,7 +14,7 @@ function playingArea(state, action) {
         playingArea.cards.push(action.card);
         break;
       case REMOVE_CARD_FROM_PLAYING_AREA:
-        draft.playingArea = playingArea.cards.filter(card => card.id !== action.card.id);
+        draft.playingArea.cards = playingArea.cards.filter(card => card.id !== action.card.id);
         break;
       case DISCARD_ALL_CARDS_FROM_PLAYING_AREA:
         const cardsToDiscard = playingArea.cards;

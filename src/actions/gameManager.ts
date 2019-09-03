@@ -83,12 +83,14 @@ interface ICurrency {
 }
 
 export const buyCardFromHeadquarters = (card, currency: ICurrency) => dispatch => {
-  dispatch(deductRecruitPoints(currency.spentRecruit || 0));
-  dispatch(deductAttackPoints(currency.spentAttack || 0));
-  dispatch(removeCardFromHeadquarters(card));
-  dispatch(addCardToDiscardPile(card));
-  dispatch(drawCardsFromDeckToHeadquarters('HQ', 1));
-  dispatch(addEventToStack('BUY', card));
+  card.setDeckId('PLAYER_1').then(() => {
+    dispatch(deductRecruitPoints(currency.spentRecruit || 0));
+    dispatch(deductAttackPoints(currency.spentAttack || 0));
+    dispatch(removeCardFromHeadquarters(card));
+    dispatch(addCardToDiscardPile(card));
+    dispatch(drawCardsFromDeckToHeadquarters('HQ', 1));
+    dispatch(addEventToStack('BUY', card));
+  });
 };
 
 export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {

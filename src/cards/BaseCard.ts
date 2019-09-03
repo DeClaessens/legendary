@@ -16,5 +16,10 @@ export default class BaseCard {
     this.imageUrl = cardData.imageUrl;
   }
 
+  setDeckId(id) {
+    this.deckId = id;
+    return Promise.resolve(true);
+  }
+
   restoreToDefaults() {}
 }
