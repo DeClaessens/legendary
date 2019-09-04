@@ -1,5 +1,5 @@
 import { uniqueid } from '@/helpers/uid';
-import artwork from '../../../../images/loki-c.jpg';
+import artwork from '@/images/loki-c.jpg';
 import HenchmenCard from '@/cards/HenchmenCard';
 import dialogService from '@/helpers/dialog';
 import { KOCard } from '@/actions/gameManager';

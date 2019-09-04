@@ -13,6 +13,7 @@ import city from './city';
 import victoryPile from './victoryPile';
 import KOPile from './KOPile';
 import abyss from './abyss';
+import mastermind from './mastermind';
 
 const initialState = {
   decks: [],
@@ -23,6 +24,10 @@ const initialState = {
   stack: [],
   abyss: {
     card: null,
+  },
+  mastermind: {
+    card: null,
+    tactics: [],
   },
   playingArea: {
     cards: [],
@@ -57,4 +62,5 @@ export default reduceReducers(
   victoryPile,
   KOPile,
   abyss,
+  mastermind,
 );

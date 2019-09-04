@@ -2,6 +2,8 @@
 import React from 'react';
 import { createChangeEmitter } from 'change-emitter';
 import KOModal from '@/components/modals/KOModal';
+import RevealModal from '@/components/modals/RevealModal';
+import ConfirmModal from '@/components/modals/ConfirmModal';
 
 class Deferred {
   promise: Promise<any>;
@@ -72,6 +74,14 @@ class DialogService {
 
   openKO() {
     return this.open(<KOModal />);
+  }
+
+  openReveal() {
+    return this.open(<RevealModal />);
+  }
+
+  openConfirm(message) {
+    return this.open(<ConfirmModal message={message} />);
   }
 }
 

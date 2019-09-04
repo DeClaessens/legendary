@@ -1,12 +1,10 @@
 import { uniqueid } from '@/helpers/uid';
 import { store } from '../../../../index';
 import artwork from '../../../../images/loki-mastermind.jpg';
-import HenchmenCard from '@/cards/HenchmenCard';
 import dialogService from '@/helpers/dialog';
-import { KOCard } from '@/actions/gameManager';
-import { moveCardToCity } from '@/actions/city';
-import { addEventToStack } from '@/actions/stack';
+import { gainWound } from '@/actions/gameManager';
 import MastermindCard from '@/cards/MastermindCard';
+import { HeroClass } from '@/helpers/heroClasses';
 
 export default class Loki extends MastermindCard {
   constructor() {
@@ -23,7 +21,20 @@ export default class Loki extends MastermindCard {
     this.strength = 10;
   }
 
+  private gainWound() {
+    // GAIN A WOUND
+    store.dispatch(gainWound());
+  }
+
   onMasterStrike() {
-    //reveal a green card or gain a wound
+    return dialogService
+      .openReveal()
+      .waitForClose()
+      .then(({ card }) => {
+        if (card.heroClass === HeroClass.STRENGTH) return true;
+
+        return this.gainWound();
+      })
+      .catch(() => this.gainWound());
   }
 }

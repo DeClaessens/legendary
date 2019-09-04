@@ -7,7 +7,6 @@ import {
   CREATE_DECK,
   DRAW_CARDS_FROM_DECK_TO_HEADQUARTERS,
   DRAW_CARDS_FROM_DECK_TO_CITY,
-  DRAW_CARD_FROM_DECK_TO_VOID,
   DRAW_CARD_FROM_DECK_TO_ABYSS,
 } from '../actions/deck';
 import { shuffle } from '../helpers/array';
@@ -40,6 +39,7 @@ function decks(state, action) {
         break;
       case DRAW_CARDS_FROM_DECK_TO_HAND:
         for (let i = 0; i < action.amount; i++) {
+          console.log(deck.cards.length);
           if (deck.cards.length === 0) {
             if (discardPile.length === 0) break;
             deck.cards.push(...shuffle(discardPile));

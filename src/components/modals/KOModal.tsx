@@ -15,10 +15,6 @@ const StyledHandDiv = styled.div``;
 const StyledPlayingAreaDiv = styled.div``;
 
 const KOModal: React.SFC<IKOModal> = ({ hand, playingArea, onSubmit }) => {
-  const handleSubmit = () => {
-    return onSubmit([1, 2, 3, 4]);
-  };
-
   return (
     <>
       <p>KO A CARD</p>

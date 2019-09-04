@@ -14,5 +14,8 @@ export const ItemTypes = {
     HENCHMEN: 'henchmen',
     HERO: 'hero',
     MASTERMIND: 'mastermind',
+    MASTERMIND_TACTIC: 'mastermindTactic',
+    WOUND: 'wound',
+    MASTER_STRIKE: 'masterStrike',
   },
 };

@@ -1,5 +1,5 @@
 import { uniqueid } from '@/helpers/uid';
-import artwork from '../../../../images/loki-c.jpg';
+import artwork from '@/images/loki-d.jpg';
 import MastermindCard from '@/cards/MastermindCard';
 
 export default class CruelRuler extends MastermindCard {

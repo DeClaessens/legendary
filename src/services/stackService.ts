@@ -5,6 +5,16 @@ const getPlayEvents = () => {
   return stack.filter(event => event.message === 'PLAY');
 };
 
+const getBuyEvents = () => {
+  const { stack } = store.getState();
+  return stack.filter(event => event.message === 'BUY');
+};
+
+const getFightEvents = () => {
+  const { stack } = store.getState();
+  return stack.filter(event => event.message === 'FIGHT');
+};
+
 const StackService = {
   findCardByHeroClass: heroClass => {
     return getPlayEvents().find(event => event.card && event.card.heroClass === heroClass);
@@ -19,6 +29,12 @@ const StackService = {
   recruitPointsMadeThisTurn: () => {
     const { turnStatistics } = store.getState();
     return turnStatistics.recruitEarned;
+  },
+  hasBoughtCard: () => {
+    return getBuyEvents().length > 0;
+  },
+  hasFoughtCard: () => {
+    return getFightEvents().length > 0;
   },
 };
 

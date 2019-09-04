@@ -4,6 +4,7 @@
 export const REMOVE_CARD_FROM_HAND = 'REMOVE_CARD_FROM_HAND';
 export const DISCARD_ALL_CARDS_FROM_HAND = 'DISCARD_ALL_CARDS_FROM_HAND';
 export const MOVE_CARD_TO_HAND = 'MOVE_CARD_TO_HAND';
+export const KO_ALL_WOUNDS_FROM_HAND = 'KO_ALL_WOUNDS_FROM_HAND';
 
 /*
  * action creators
@@ -15,6 +16,10 @@ export function removeCardFromHand(card) {
 
 export function discardAllCardsFromHand() {
   return { type: DISCARD_ALL_CARDS_FROM_HAND };
+}
+
+export function KOAllWoundsFromHand() {
+  return { type: KO_ALL_WOUNDS_FROM_HAND };
 }
 
 export function moveCardToHand(card) {

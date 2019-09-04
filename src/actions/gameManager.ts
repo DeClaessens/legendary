@@ -7,7 +7,7 @@ import {
   drawCardsFromDeckToHeadquarters,
   drawCardFromDeckToAbyss,
 } from './deck';
-import { removeCardFromHand, discardAllCardsFromHand, moveCardToHand } from './hand';
+import { removeCardFromHand, discardAllCardsFromHand, moveCardToHand, KOAllWoundsFromHand } from './hand';
 import { addCardToDiscardPile } from './discardPile';
 import { addRecruitPoints, deductRecruitPoints, resetRecruitPoints } from './recruit';
 import { addAttackPoints, deductAttackPoints, resetAttackPoints } from './attack';
@@ -22,6 +22,10 @@ import { ItemTypes } from '@/helpers/constants';
 import { addCardToKOPile } from './KOPile';
 import { store } from '..';
 import { clearAbyss } from './abyss';
+import WoundCard from '@/cards/WoundCard';
+import HandService from '@/services/handService';
+import dialogService from '@/helpers/dialog';
+import StackService from '@/services/stackService';
 
 export const createAndFillDeck = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -36,14 +40,32 @@ export const initialise = () => dispatch => {
 };
 
 export const endTurn = () => dispatch => {
-  dispatch(resetTurnModifiers());
-  dispatch(resetTurnStatistics());
-  dispatch(resetAttackPoints());
-  dispatch(resetRecruitPoints());
-  dispatch(discardAllCardsFromPlayingArea());
-  dispatch(discardAllCardsFromHand());
-  dispatch(drawCardsFromDeckToHand('PLAYER_1', 6));
-  dispatch(addEventToStack('END'));
+  //HANDLE END OF TURN CARD EFFECTS
+  let promise = Promise.resolve();
+
+  //KO ALL WOUNDS FROM HAND IF NO CARDS ARE BOUGHT OR FOUGHT
+  if (HandService.hasWounds() && !StackService.hasBoughtCard() && !StackService.hasFoughtCard()) {
+    promise = dialogService
+      .openConfirm('Do you want to KO all wounds from your hand')
+      .waitForClose()
+      .then(() => dispatch(KOAllWoundsFromHand()));
+  }
+
+  promise.finally(() => {
+    dispatch(resetTurnModifiers());
+    dispatch(resetTurnStatistics());
+    dispatch(resetAttackPoints());
+    dispatch(resetRecruitPoints());
+    dispatch(discardAllCardsFromPlayingArea());
+    dispatch(discardAllCardsFromHand());
+    dispatch(drawCardsFromDeckToHand('PLAYER_1', 6));
+    dispatch(addEventToStack('END'));
+  });
+};
+
+export const startTurn = () => dispatch => {
+  dispatch(addEventToStack('START'));
+  dispatch(drawVillainCard());
 };
 
 export const drawVillainCard = () => dispatch => {
@@ -55,11 +77,6 @@ export const drawVillainCard = () => dispatch => {
       return abyss.card.whenDrawn();
     })
     .then(() => clearAbyss());
-};
-
-export const startTurn = () => dispatch => {
-  dispatch(addEventToStack('START'));
-  dispatch(drawVillainCard());
 };
 
 export const playCardFromHand = card => dispatch => {
@@ -101,6 +118,7 @@ export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {
       dispatch(deductAttackPoints(currency.spentAttack || 0));
       dispatch(removeCardFromCity(card));
       dispatch(addCardToVictoryPile(card));
+      dispatch(addEventToStack('FIGHT', card));
     })
     .catch(err => console.log('user cancelled the fight'));
 };
@@ -114,6 +132,11 @@ export const KOCard = (card, from) => dispatch => {
   if (from === ItemTypes.CARDS.FROM_PLAYING_AREA) dispatch(removeCardFromPlayingArea(card));
 
   dispatch(addCardToKOPile(card));
+};
+
+export const gainWound = () => dispatch => {
+  dispatch(addCardToDiscardPile(new WoundCard()));
+  dispatch(addEventToStack('GAIN WOUND'));
 };
 
 export default {

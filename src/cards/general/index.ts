@@ -1,8 +1,6 @@
 import ShieldAgent from './ShieldAgent';
 import ShieldOperative from './ShieldOperative';
-import ArcReactorIronMan from '../core/ironMan/ArcReactorIronMan';
-import EndlessInventionIronMan from '../core/ironMan/EndlessInventionIronMan';
-import GodOfThunderThor from '../core/thor/GodOfThunderThor';
+import WoundCard from '../WoundCard';
 
 export const starterDeck = () => {
   return [
@@ -14,10 +12,6 @@ export const starterDeck = () => {
     new ShieldAgent(),
     new ShieldAgent(),
     new ShieldAgent(),
-    new ShieldOperative(),
-    new ShieldOperative(),
-    new ShieldOperative(),
-    new ShieldOperative(),
     new ShieldOperative(),
     new ShieldOperative(),
     new ShieldOperative(),

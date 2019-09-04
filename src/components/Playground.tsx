@@ -16,12 +16,17 @@ import { coreThorCollection } from '@/cards/core/thor';
 import Sentinel from '@/cards/core/villains/henchmen/Sentinel';
 import DialogComponent from './DialogContainer';
 import DialogContainer from './DialogContainer';
+import Loki from '@/cards/core/masterminds/Loki/Loki';
+import { coreLokiTacticsCollection } from '@/cards/core/masterminds/Loki/tactics';
+import { createMastermind } from '@/actions/mastermind';
+import MasterStrikeCard from '@/cards/MasterStrikeCard';
 
 interface IProps {
   hand: any[];
   deck: any[];
   onInitializeGame: () => void;
   onCreateAndFillDeck: (id, cards) => void;
+  onCreateMastermind: (mastermind, tactics) => void;
   onPlayCard: (card) => void;
 }
 
@@ -37,7 +42,7 @@ const PlaygroundContainer = styled.div`
 
 export const Playground: React.SFC<IProps> = (props): ReactElement<any> | null => {
   useEffect(() => {
-    const { onInitializeGame, onCreateAndFillDeck } = props;
+    const { onInitializeGame, onCreateAndFillDeck, onCreateMastermind } = props;
 
     onCreateAndFillDeck('PLAYER_1', [...starterDeck()]);
     onCreateAndFillDeck('VILLAIN', [
@@ -47,14 +52,9 @@ export const Playground: React.SFC<IProps> = (props): ReactElement<any> | null =
       new Sentinel(),
       new Sentinel(),
       new Sentinel(),
-      new Sentinel(),
-      new Sentinel(),
-      new Sentinel(),
-      new Sentinel(),
-      new Sentinel(),
-      new Sentinel(),
     ]);
     onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
+    onCreateMastermind(new Loki(), [...coreLokiTacticsCollection()]);
 
     onInitializeGame();
   });
@@ -81,6 +81,9 @@ const mapDispatchToProps = dispatch => ({
   },
   onInitializeGame: () => {
     dispatch(initialise());
+  },
+  onCreateMastermind: (mastermind, tactics) => {
+    dispatch(createMastermind(mastermind, tactics));
   },
 });
 

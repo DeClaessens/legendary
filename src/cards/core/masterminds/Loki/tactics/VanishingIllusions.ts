@@ -1,6 +1,5 @@
 import { uniqueid } from '@/helpers/uid';
-import { store } from '../../../../index';
-import artwork from '../../../../images/loki-b.jpg';
+import artwork from '@/images/loki-b.jpg';
 import HenchmenCard from '@/cards/HenchmenCard';
 import dialogService from '@/helpers/dialog';
 import { KOCard } from '@/actions/gameManager';
