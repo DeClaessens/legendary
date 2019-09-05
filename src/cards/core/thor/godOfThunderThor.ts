@@ -6,7 +6,7 @@ import StackService from '@/services/stackService';
 import { HeroClass } from '@/helpers/heroClasses';
 import HeroCard from '@/cards/HeroCard';
 import { HeroTeam } from '@/helpers/heroTeams';
-import { enableSpendAttackAsRecruitModifier } from '@/actions/turnModifiers';
+import { enableSpendRecruitAsAttackModifier } from '@/actions/turnModifiers';
 
 export default class GodOfThunderThor extends HeroCard {
   constructor() {
@@ -29,12 +29,12 @@ export default class GodOfThunderThor extends HeroCard {
     this.recruit = 5;
   }
 
-  private enableSpendAttackAsRecruitModifier() {
-    store.dispatch(enableSpendAttackAsRecruitModifier());
+  private enableSpendRecruitAsAttackModifier() {
+    store.dispatch(enableSpendRecruitAsAttackModifier());
   }
 
   action() {
-    this.enableSpendAttackAsRecruitModifier();
+    this.enableSpendRecruitAsAttackModifier();
     return Promise.resolve(true);
   }
 }

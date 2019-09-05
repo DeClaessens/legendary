@@ -26,6 +26,7 @@ import WoundCard from '@/cards/WoundCard';
 import HandService from '@/services/handService';
 import dialogService from '@/helpers/dialog';
 import StackService from '@/services/stackService';
+import { removeTacticFromMastermind } from './mastermind';
 
 export const createAndFillDeck = (id, cards) => dispatch => {
   dispatch(createDeck(id));
@@ -121,6 +122,16 @@ export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {
       dispatch(addEventToStack('FIGHT', card));
     })
     .catch(err => console.log('user cancelled the fight'));
+};
+
+export const fightMastermind = (tactic, currency) => dispatch => {
+  tactic.fight().then(() => {
+    dispatch(deductRecruitPoints(currency.spentRecruit || 0));
+    dispatch(deductAttackPoints(currency.spentAttack || 0));
+    dispatch(removeTacticFromMastermind(tactic));
+    dispatch(addCardToVictoryPile(tactic));
+    dispatch(addEventToStack('FIGHT', tactic));
+  });
 };
 
 export const drawCardFromPlayerDeck = id => dispatch => {

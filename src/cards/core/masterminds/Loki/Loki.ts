@@ -22,7 +22,6 @@ export default class Loki extends MastermindCard {
   }
 
   private gainWound() {
-    // GAIN A WOUND
     store.dispatch(gainWound());
   }
 

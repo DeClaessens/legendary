@@ -38,7 +38,6 @@ const KOModal: React.SFC<IKOModal> = ({ hand, playingArea, onSubmit }) => {
           ))}
         </ul>
       </StyledPlayingAreaDiv>
-      <button onClick={handleSubmit}>Submit</button>
     </>
   );
 };

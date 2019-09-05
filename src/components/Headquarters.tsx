@@ -18,16 +18,11 @@ interface Hand {
 const HeadQuartersContainer = styled.div``;
 
 const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, onBuyCard }) => {
-  const [showModal, setShowModal] = useState(false);
-  const [cardToBuy, setCardToBuy] = useState(null);
-
   const handleBuyCard = (card, spentRecruit, spentAttack = 0) => {
-    setShowModal(false);
     onBuyCard(card, { spentAttack, spentRecruit });
   };
 
   const beforeBuyingCard = card => {
-    setCardToBuy(card);
     if (canSpendAttackAsRecruit) {
       const Modal = <CostModal show totalRecruit={recruit} totalAttack={attack} totalCost={card.cost} />;
       return dialogService
@@ -43,6 +38,7 @@ const Headquarters = ({ headquarters, recruit, attack, canSpendAttackAsRecruit, 
 
     return handleBuyCard(card, card.cost);
   };
+
   return (
     <HeadQuartersContainer>
       {headquarters.map(card => (

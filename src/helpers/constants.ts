@@ -9,6 +9,7 @@ export const ItemTypes = {
     HAND: 'hand',
     HEADQUARTERS: 'headquarters',
     CITY: 'city',
+    MASTERMIND: 'mastermind',
   },
   CARD_TYPES: {
     HENCHMEN: 'henchmen',

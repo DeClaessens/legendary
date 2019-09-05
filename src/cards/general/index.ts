@@ -1,6 +1,6 @@
 import ShieldAgent from './ShieldAgent';
 import ShieldOperative from './ShieldOperative';
-import WoundCard from '../WoundCard';
+import GodOfThunderThor from '../core/thor/GodOfThunderThor';
 
 export const starterDeck = () => {
   return [
