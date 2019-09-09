@@ -23,6 +23,7 @@ export default class VanishingIllusions extends MastermindCard {
   }
 
   fight() {
-    // EACH OTHER PLAYER KO'S A VILLAIN FROM THEIR VICTORY
+    // EACH OTHER PLAYER KO'S A VILLAIN FROM THEIR VICTORY PILE
+    return Promise.resolve(true);
   }
 }

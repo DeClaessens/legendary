@@ -4,5 +4,5 @@ import VanishingIllusions from './VanishingIllusions';
 import WhispersAndLies from './WhispersAndLies';
 
 export const coreLokiTacticsCollection = () => {
-  return [new CruelRuler(), new ManiacalTyrant(), new VanishingIllusions(), new WhispersAndLies()];
+  return [new WhispersAndLies()];
 };

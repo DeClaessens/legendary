@@ -16,7 +16,10 @@ const MastermindContainer = styled.div``;
 const Mastermind = ({ mastermind, attack, onFightMastermind }) => {
   const handleFightMastermind = () => {
     if (attack >= mastermind.card.strength) {
-      onFightMastermind(mastermind.tactics.pop(), { spentAttack: mastermind.card.strength, spentRecruit: 0 });
+      onFightMastermind(mastermind.tactics[mastermind.tactics.length - 1], {
+        spentAttack: mastermind.card.strength,
+        spentRecruit: 0,
+      });
     }
   };
 

@@ -8,11 +8,11 @@ import {
   drawCardFromDeckToAbyss,
 } from './deck';
 import { removeCardFromHand, discardAllCardsFromHand, moveCardToHand, KOAllWoundsFromHand } from './hand';
-import { addCardToDiscardPile } from './discardPile';
+import { addCardToDiscardPile, removeCardFromDiscardPile } from './discardPile';
 import { addRecruitPoints, deductRecruitPoints, resetRecruitPoints } from './recruit';
 import { addAttackPoints, deductAttackPoints, resetAttackPoints } from './attack';
 import { addCardToPlayingArea, discardAllCardsFromPlayingArea, removeCardFromPlayingArea } from './playingArea';
-import { addEventToStack } from './stack';
+import { addEventToStack, clearStack } from './stack';
 import { removeCardFromHeadquarters } from './headquarters';
 import { updateTurnStatistics, resetTurnStatistics } from './turnStatistics';
 import { removeCardFromCity } from './city';
@@ -55,6 +55,7 @@ export const endTurn = () => dispatch => {
   promise.finally(() => {
     dispatch(resetTurnModifiers());
     dispatch(resetTurnStatistics());
+    dispatch(clearStack());
     dispatch(resetAttackPoints());
     dispatch(resetRecruitPoints());
     dispatch(discardAllCardsFromPlayingArea());
@@ -124,6 +125,14 @@ export const fightCardFromCity = (card, currency: ICurrency) => dispatch => {
     .catch(err => console.log('user cancelled the fight'));
 };
 
+export const defeatCardFromCity = card => dispatch => {
+  card.fight().then(() => {
+    dispatch(removeCardFromCity(card));
+    dispatch(addCardToVictoryPile(card));
+    dispatch(addEventToStack('DEFEAT', card));
+  });
+};
+
 export const fightMastermind = (tactic, currency) => dispatch => {
   tactic.fight().then(() => {
     dispatch(deductRecruitPoints(currency.spentRecruit || 0));
@@ -141,6 +150,7 @@ export const drawCardFromPlayerDeck = id => dispatch => {
 export const KOCard = (card, from) => dispatch => {
   if (from === ItemTypes.CARDS.FROM_HAND) dispatch(removeCardFromHand(card));
   if (from === ItemTypes.CARDS.FROM_PLAYING_AREA) dispatch(removeCardFromPlayingArea(card));
+  if (from === ItemTypes.CARDS.FROM_DISCARD_PILE) dispatch(removeCardFromDiscardPile(card));
 
   dispatch(addCardToKOPile(card));
 };

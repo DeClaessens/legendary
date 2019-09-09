@@ -1,4 +1,5 @@
 import { uniqueid } from '@/helpers/uid';
+import { store } from '../../../../../index';
 import artwork from '@/images/loki-c.jpg';
 import HenchmenCard from '@/cards/HenchmenCard';
 import dialogService from '@/helpers/dialog';
@@ -18,11 +19,22 @@ export default class ManiacalTyrant extends MastermindCard {
     });
   }
 
+  private KOCard(card, from) {
+    store.dispatch(KOCard(card, from));
+  }
+
   restoreToDefaults() {
     this.strength = 10;
   }
 
   fight() {
-    // KO UP TO FOUR CARDS FROM YOUR DISCARDPILE
+    return dialogService
+      .openKOFromDiscardPile(4)
+      .waitForClose()
+      .then(({ cards, from }) => {
+        cards.forEach(card => this.KOCard(card, from));
+        return true;
+      })
+      .catch(() => Promise.resolve());
   }
 }

@@ -4,6 +4,7 @@ export const ItemTypes = {
     FROM_HEADQUARTERS: 'cardsFromHeadquarters',
     FROM_CITY: 'cardsFromCity',
     FROM_PLAYING_AREA: 'cardsFromPlayingArea',
+    FROM_DISCARD_PILE: 'cardsFromDiscardPile',
   },
   LOCATIONS: {
     HAND: 'hand',
@@ -18,5 +19,6 @@ export const ItemTypes = {
     MASTERMIND_TACTIC: 'mastermindTactic',
     WOUND: 'wound',
     MASTER_STRIKE: 'masterStrike',
+    BYSTANDER: 'bystander',
   },
 };

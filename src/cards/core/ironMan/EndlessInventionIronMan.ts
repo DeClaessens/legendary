@@ -23,7 +23,6 @@ export default class EndlessInventionIronMan extends HeroCard {
   }
 
   private drawCard() {
-    console.log(this);
     store.dispatch(drawCardFromPlayerDeck(this.deckId));
   }
 

@@ -18,7 +18,7 @@ interface ICity {
 const CityContainer = styled.div``;
 
 const City = ({ city, recruit, attack, canSpendRecruitAsAttack, onFightCard }) => {
-  const handleFightCard = (card, spentRecruit, spentAttack = 0) => {
+  const handleFightCard = (card, spentAttack, spentRecruit = 0) => {
     onFightCard(card, { spentAttack, spentRecruit });
   };
 
@@ -38,11 +38,6 @@ const City = ({ city, recruit, attack, canSpendRecruitAsAttack, onFightCard }) =
     if (attack >= card.strength) return handleFightCard(card, card.strength);
   };
 
-  const fightCard = card => {
-    if (attack >= card.strength) {
-      onFightCard(card, { spentAttack: card.strength, spentRecruit: 0 });
-    }
-  };
   return (
     <CityContainer>
       {city.map(card => (

@@ -14,11 +14,13 @@ import victoryPile from './victoryPile';
 import KOPile from './KOPile';
 import abyss from './abyss';
 import mastermind from './mastermind';
+import ShieldAgent from '@/cards/general/ShieldAgent';
+import BystanderCard from '@/cards/BystanderCard';
 
 const initialState = {
   decks: [],
   hand: [],
-  discardPile: [],
+  discardPile: [new BystanderCard(), new BystanderCard(), new BystanderCard()],
   victoryPile: [],
   KOPile: [],
   stack: [],
@@ -42,7 +44,7 @@ const initialState = {
   },
   headquarters: [],
   city: [],
-  attack: 0,
+  attack: 10,
   recruit: 0,
 };
 

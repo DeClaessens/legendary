@@ -4,6 +4,8 @@ import { createChangeEmitter } from 'change-emitter';
 import KOModal from '@/components/modals/KOModal';
 import RevealModal from '@/components/modals/RevealModal';
 import ConfirmModal from '@/components/modals/ConfirmModal';
+import KOFromDiscardPile from '@/components/modals/KOFromDiscardPile';
+import DefeatCityVillainModal from '@/components/modals/DefeatCityVillainModal';
 
 class Deferred {
   promise: Promise<any>;
@@ -76,12 +78,20 @@ class DialogService {
     return this.open(<KOModal />);
   }
 
+  openKOFromDiscardPile(amount, cardType = undefined, isMandatory = false) {
+    return this.open(<KOFromDiscardPile amount={amount} cardType={cardType} isMandatory={isMandatory} />);
+  }
+
   openReveal() {
     return this.open(<RevealModal />);
   }
 
   openConfirm(message) {
     return this.open(<ConfirmModal message={message} />);
+  }
+
+  openDefeatCityVillain() {
+    return this.open(<DefeatCityVillainModal />);
   }
 }
 

@@ -17,6 +17,7 @@ const getFightEvents = () => {
 
 const StackService = {
   findCardByHeroClass: heroClass => {
+    console.log(getPlayEvents().find(event => event.card && event.card.heroClass === heroClass));
     return getPlayEvents().find(event => event.card && event.card.heroClass === heroClass);
   },
   countCardsByHeroClass: heroClass => {
