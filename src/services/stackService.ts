@@ -10,6 +10,10 @@ const getBuyEvents = () => {
   return stack.filter(event => event.message === 'BUY');
 };
 
+const getDrawEvents = () => {
+  const { stack } = store.getState();
+  return stack.filter(event => event.message === 'DRAW');
+};
 const getFightEvents = () => {
   const { stack } = store.getState();
   return stack.filter(event => event.message === 'FIGHT');
@@ -17,7 +21,6 @@ const getFightEvents = () => {
 
 const StackService = {
   findCardByHeroClass: heroClass => {
-    console.log(getPlayEvents().find(event => event.card && event.card.heroClass === heroClass));
     return getPlayEvents().find(event => event.card && event.card.heroClass === heroClass);
   },
   countCardsByHeroClass: heroClass => {
@@ -30,6 +33,9 @@ const StackService = {
   recruitPointsMadeThisTurn: () => {
     const { turnStatistics } = store.getState();
     return turnStatistics.recruitEarned;
+  },
+  countExtraCardsDrawn: () => {
+    return getDrawEvents().length;
   },
   hasBoughtCard: () => {
     return getBuyEvents().length > 0;

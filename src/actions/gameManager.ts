@@ -145,6 +145,7 @@ export const fightMastermind = (tactic, currency) => dispatch => {
 
 export const drawCardFromPlayerDeck = id => dispatch => {
   dispatch(drawCardsFromDeckToHand(id, 1));
+  dispatch(addEventToStack('DRAW'));
 };
 
 export const KOCard = (card, from) => dispatch => {

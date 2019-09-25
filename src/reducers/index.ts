@@ -16,11 +16,12 @@ import abyss from './abyss';
 import mastermind from './mastermind';
 import ShieldAgent from '@/cards/general/ShieldAgent';
 import BystanderCard from '@/cards/BystanderCard';
+import WoundCard from '@/cards/WoundCard';
 
 const initialState = {
   decks: [],
   hand: [],
-  discardPile: [new BystanderCard(), new BystanderCard(), new BystanderCard()],
+  discardPile: [],
   victoryPile: [],
   KOPile: [],
   stack: [],
@@ -37,14 +38,14 @@ const initialState = {
   turnStatistics: {
     recruitEarned: 0,
     attackEarned: 0,
-    modifiers: [],
+    cardsDrawn: 0,
   },
   turnModifiers: {
     spendAttackAsRecruit: false,
   },
   headquarters: [],
   city: [],
-  attack: 10,
+  attack: 0,
   recruit: 0,
 };
 

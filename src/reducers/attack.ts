@@ -6,10 +6,10 @@ function attack(state, action) {
   return produce(state, draft => {
     switch (action.type) {
       case ADD_ATTACK_POINTS:
-        draft.attack += action.attackPoints;
+        draft.attack += action.payload.attackPoints;
         break;
       case DEDUCT_ATTACK_POINTS:
-        draft.attack -= action.attackPoints;
+        draft.attack -= action.payload.attackPoints;
         break;
       case RESET_ATTACK_POINTS:
         draft.attack = 0;

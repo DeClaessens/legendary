@@ -11,8 +11,8 @@ const CardWrapper = styled.div`
 `;
 
 const CardContainer = styled.div`
-  background-image: url(${(props: any) => props.backgroundImage});
-  background-size: contain;
+  background: url(${(props: any) => props.backgroundImage}) center center no-repeat;
+  background-size: cover;
   border-radius: 4px;
   margin: 5px;
   width: 105.495px;

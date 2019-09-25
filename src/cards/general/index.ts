@@ -1,6 +1,7 @@
 import ShieldAgent from './ShieldAgent';
 import ShieldOperative from './ShieldOperative';
 import GodOfThunderThor from '../core/thor/GodOfThunderThor';
+import BerserkerRageWolverine from '../core/wolverine/BerserkerRageWolverine';
 
 export const starterDeck = () => {
   return [

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDrop } from 'react-dnd';
+
 import { ItemTypes } from '@/helpers/constants';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled';

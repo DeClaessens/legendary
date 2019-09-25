@@ -29,7 +29,6 @@ const PlayButton = styled.div`
 `;
 
 const Hand = ({ hand, onPlayCard }) => {
-  const play = () => {};
   return (
     <HandContainer>
       <h1>Hand</h1>

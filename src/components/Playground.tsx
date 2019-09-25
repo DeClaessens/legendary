@@ -20,6 +20,7 @@ import Loki from '@/cards/core/masterminds/Loki/Loki';
 import { coreLokiTacticsCollection } from '@/cards/core/masterminds/Loki/tactics';
 import { createMastermind } from '@/actions/mastermind';
 import MasterStrikeCard from '@/cards/MasterStrikeCard';
+import { coreWolverineCollection } from '@/cards/core/wolverine';
 
 interface IProps {
   hand: any[];
@@ -53,7 +54,7 @@ export const Playground: React.SFC<IProps> = (props): ReactElement<any> | null =
       new Sentinel(),
       new Sentinel(),
     ]);
-    onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection()]);
+    onCreateAndFillDeck('HQ', [...coreIronManCollection(), ...coreThorCollection(), ...coreWolverineCollection()]);
     onCreateMastermind(new Loki(), [...coreLokiTacticsCollection()]);
 
     onInitializeGame();

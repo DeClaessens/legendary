@@ -6,6 +6,7 @@ import RevealModal from '@/components/modals/RevealModal';
 import ConfirmModal from '@/components/modals/ConfirmModal';
 import KOFromDiscardPile from '@/components/modals/KOFromDiscardPile';
 import DefeatCityVillainModal from '@/components/modals/DefeatCityVillainModal';
+import KOFromDiscardPileOrHand from '@/components/modals/KOFromDiscardPileOrHand';
 
 class Deferred {
   promise: Promise<any>;
@@ -80,6 +81,10 @@ class DialogService {
 
   openKOFromDiscardPile(amount, cardType = undefined, isMandatory = false) {
     return this.open(<KOFromDiscardPile amount={amount} cardType={cardType} isMandatory={isMandatory} />);
+  }
+
+  openKOFromDiscardPileOrHand(amount, cardType = undefined, isMandatory = false) {
+    return this.open(<KOFromDiscardPileOrHand amount={amount} cardType={cardType} isMandatory={isMandatory} />);
   }
 
   openReveal() {

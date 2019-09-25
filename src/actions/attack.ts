@@ -10,11 +10,11 @@ export const RESET_ATTACK_POINTS = 'RESET_ATTACK_POINTS';
  */
 
 export function addAttackPoints(attackPoints) {
-  return { type: ADD_ATTACK_POINTS, attackPoints };
+  return { type: ADD_ATTACK_POINTS, payload: { attackPoints } };
 }
 
 export function deductAttackPoints(attackPoints) {
-  return { type: DEDUCT_ATTACK_POINTS, attackPoints };
+  return { type: DEDUCT_ATTACK_POINTS, payload: { attackPoints } };
 }
 
 export function resetAttackPoints() {
