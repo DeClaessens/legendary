@@ -31,8 +31,7 @@ export default class Sentinel extends HenchmenCard {
       .openKO()
       .waitForClose()
       .then(({ card, from }) => {
-        this.KOCard(card, from);
-        return true;
+        return this.KOCard(card, from);
       })
       .catch(() => Promise.reject());
   }

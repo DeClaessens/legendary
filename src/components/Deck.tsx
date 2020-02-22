@@ -8,14 +8,14 @@ interface IProps {
 }
 
 const DeckContainer = styled.div`
-  font-size: 10pt;
+  font-size: 15pt;
   text-align: center;
   display: inline-block;
-  padding: 5px;
+  padding: 10px;
 
   p {
-    font-size: 7pt;
-    margin-bottom: 3px;
+    font-size: 13pt;
+    margin-bottom: 6px;
   }
 `;
 
@@ -24,8 +24,8 @@ const DeckIndicator = styled.div`
   border: 1px solid black;
   border-radius: 5px;
   display: inline-flex;
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   justify-content: center;
   align-items: center;
 `;
